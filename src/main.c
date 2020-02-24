@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:12:17 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 16:17:44 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/24 17:02:32 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(void)
 		ft_read_plateau(map);
 		ft_read_piece(map);
 		ft_heat(map);
-//		ft_put_piece(map);
+		ft_put_piece(map);
 //		ft_del_piece(map);
 		if (fd)
 		{
