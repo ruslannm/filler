@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 13:07:26 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/24 15:20:55 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,28 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-typedef struct
-{
-	int		height;
-	int		width;
-	char	**info;
-}			t_object;
+# define PLAYER	-2
+# define ENEMY	-1
+# define DOT	-3
 
 typedef struct
 {
 	int			fd;
 	char		player;
 	char		enemy;
-	t_object	*plateau;
-	t_object	*piece;
+	int			**map;
+	int			map_height;
+	int			map_width;
+	char		**piece;
+	int			piece_height;
+	int			piece_width;
+
 }				t_map;
 
 t_map	*ft_init(int fd);
 char	*ft_find_line(int fd, char *needle);
+void	ft_read_plateau(t_map *map);
+void	ft_read_piece(t_map *map);
+void	ft_get_size(t_map *map, char *str);
 
 #endif

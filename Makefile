@@ -6,7 +6,7 @@
 #    By: rgero <rgero@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 15:46:56 by rgero             #+#    #+#              #
-#    Updated: 2020/02/24 13:14:18 by rgero            ###   ########.fr        #
+#    Updated: 2020/02/24 15:21:58 by rgero            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 CFLAGS = -c -Wall -Wextra -Werror -g
 
 SRC_PATH = src
-SRC_NAME = main.c ft_init.c ft_find_line.c
+SRC_NAME = main.c ft_init.c ft_find_line.c ft_read.c
 
 SRC = $(addprefix $(SRC_PATH)/, $(SRC_NAME))
 

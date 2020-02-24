@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 13:18:21 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/24 15:18:27 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,68 +29,40 @@ void	ft_get_player(t_map *map)
 	ft_strdel(&line);
 }
 
-void	ft_get_size(int	fd, t_object *object, char *str)
+void	ft_get_size(t_map *map, char *str)
 {
 	char	*line;
 
-	if (0 == fd)
-		get_next_line(fd, &line);
-	else
-		line = ft_find_line(fd, str);
-	object->height = ft_atoi(ft_strchr(line, ' '));
-	object->width = ft_atoi(ft_strrchr(line, ' '));
-	ft_strdel(&line);
-}
-
-void	ft_read_plateau(t_map *map)
-{
-	char	*line;
-	int		i;
-
-	map->plateau->info = ft_memalloc(sizeof(char *) * map->plateau->height);
 	if (0 == map->fd)
+		get_next_line(map->fd, &line);
+	else
+		line = ft_find_line(map->fd, str);
+	if (0 == ft_strcmp("Plateau", str))
 	{
-		get_next_line(map->fd, &line);
-		ft_strdel(&line);
-		get_next_line(map->fd, &line);
+		map->map_height = ft_atoi(ft_strchr(line, ' '));
+		map->map_width = ft_atoi(ft_strrchr(line, ' '));
 	}
 	else
-		line = ft_find_line(map->fd, "000");
-	i = -1;
-	map->plateau->info[++i] = ft_strdup(line + 4);
-	ft_strdel(&line);
-	while (++i < map->plateau->height)
 	{
-		get_next_line(map->fd, &line);
-		map->plateau->info[i] = ft_strdup(line + 4);
-		ft_strdel(&line);
+		map->piece_height = ft_atoi(ft_strchr(line, ' '));
+		map->piece_width = ft_atoi(ft_strrchr(line, ' '));
 	}
-}
-
-void	ft_read_piece(t_map *map)
-{
-	char	*line;
-	int		i;
-
-	map->piece->info = ft_memalloc(sizeof(char *) * map->piece->height);
-	line = NULL;
-	i = -1;
-	while (++i < map->piece->height)
-		get_next_line(map->fd, &map->piece->info[i]);
+	ft_strdel(&line);
 }
 
 t_map	*ft_init(int fd)
 {
-	t_map *map;
+	t_map	*map;
+	int		height;
 
 	map = (t_map*)malloc(sizeof(t_map));
 	map->fd = fd;
 	ft_get_player(map);
-	map->plateau = (t_object*)malloc(sizeof(t_object));
-	ft_get_size(map->fd, map->plateau, "Plateau");
-	ft_read_plateau(map);
-	map->piece = (t_object*)malloc(sizeof(t_object));
-	ft_get_size(map->fd, map->piece, "Piece");
-	ft_read_piece(map);
+	ft_get_size(map, "Plateau");
+	map->map = (int **)malloc(sizeof(int *) * map->map_height);
+	height = 0;
+	while (height < map->map_height)
+		map->map[height++] =\
+		(int*)malloc(sizeof(int) * map->map_width);
 	return (map);
 }
