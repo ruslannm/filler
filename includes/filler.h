@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 17:06:42 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/24 17:17:46 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void	ft_get_size(t_map *map, char *str);
 void	ft_heat(t_map *map);
 void	ft_put_piece(t_map *map);
 void	ft_del_piece(t_map *map);
+void	ft_del_map(t_map *map);
 
 #endif

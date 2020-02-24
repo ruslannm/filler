@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 16:21:23 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/24 17:45:11 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,17 @@
 void	ft_get_player(t_map *map)
 {
 	char	*line;
+//	int		fd;
+
+//	fd = open("trace.txt", O_WRONLY | O_APPEND);
+	//write(fd, "start", 5);
 
 	if (0 == map->fd)
 		get_next_line(map->fd, &line);
 	else
-		line = ft_find_line(map->fd, "exec p2");
+		line = ft_find_line(map->fd, "exec p");
+//	write(fd, line, ft_strlen(line));
+	//close(fd);
 	map->player = 70 + (line[10] - '0') * 9;
 	map->enemy = 97 - (line[10] - '0') * 9;
 	ft_strdel(&line);
@@ -55,6 +61,11 @@ t_map	*ft_init(int fd)
 	t_map	*map;
 	int		height;
 
+	int		fd1;
+
+	fd1 = open("Result1.txt", O_WRONLY | O_APPEND);
+	write(fd1, "start", 5);
+	close(fd1);
 	map = (t_map*)malloc(sizeof(t_map));
 	map->fd = fd;
 	ft_get_player(map);
