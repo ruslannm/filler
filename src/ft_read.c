@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 15:20:39 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/24 18:51:05 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void	ft_read_plateau(t_map *map)
 	char	*line;
 	int		i;
 
-	if (0 == map->fd)
+/*	if (0 == map->fd)
 	{
 		get_next_line(map->fd, &line);
 		ft_strdel(&line);
 		get_next_line(map->fd, &line);
 	}
-	else
+	else */
 		line = ft_find_line(map->fd, "000");
 	i = 0;
 	ft_fill_line_map(map, i, line + 4);
@@ -59,13 +59,19 @@ void	ft_read_plateau(t_map *map)
 
 void	ft_read_piece(t_map *map)
 {
-	char	*line;
 	int		i;
+	int fd1;
 
+	fd1 = open("result1.txt", O_WRONLY | O_APPEND);
+	
 	ft_get_size(map, "Piece");
-	map->piece = ft_memalloc(sizeof(char *) * map->piece_height);
-	line = NULL;
+	map->piece = (char**)malloc(sizeof(char *) * map->piece_height);
 	i = -1;
 	while (++i < map->piece_height)
+		{
 		get_next_line(map->fd, &map->piece[i]);
+		write(fd1, map->piece[i], ft_strlen(map->piece[i]));
+		}
+	write(fd1, "--\n", 3);
+	close(fd1);
 }

@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 17:17:50 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/24 18:28:53 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ft_del_piece(t_map *map)
 {
 	int i;
 
-	i = 0;
+	i = map->piece_height;
 	while (i < map->piece_height)
 		ft_strdel(&map->piece[i++]);
 	free(map->piece);
