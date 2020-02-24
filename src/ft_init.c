@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 15:18:27 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/24 16:21:23 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_get_player(t_map *map)
 	if (0 == map->fd)
 		get_next_line(map->fd, &line);
 	else
-		line = ft_find_line(map->fd, "exec p");
+		line = ft_find_line(map->fd, "exec p2");
 	map->player = 70 + (line[10] - '0') * 9;
 	map->enemy = 97 - (line[10] - '0') * 9;
 	ft_strdel(&line);

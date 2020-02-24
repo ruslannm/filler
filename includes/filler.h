@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 15:20:55 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/24 16:13:34 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include "ft_printf.h"
 
 # define PLAYER	-2
-# define ENEMY	-1
+# define ENEMY	0
 # define DOT	-3
 
 typedef struct
@@ -43,5 +43,6 @@ char	*ft_find_line(int fd, char *needle);
 void	ft_read_plateau(t_map *map);
 void	ft_read_piece(t_map *map);
 void	ft_get_size(t_map *map, char *str);
+void	ft_heat(t_map *map);
 
 #endif

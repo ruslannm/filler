@@ -5,8 +5,8 @@
 # -------------------------------------------- #
 launched players/grati.filler
 $$$ exec p1 : [players/grati.filler]
-launched ../vinograd.filler
-$$$ exec p2 : [../vinograd.filler]
+launched ../rgero.filler
+$$$ exec p2 : [../rgero.filler]
 Plateau 24 40:
     0123456789012345678901234567890123456789
 000 ........................................
