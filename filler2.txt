@@ -4,25 +4,26 @@
 #                                              #
 # -------------------------------------------- #
 launched players/grati.filler
-$$$ exec p2 : [players/grati.filler]
+$$$ exec p1 : [players/grati.filler]
 launched ../rgero.filler
-$$$ exec p1 : [../rgero.filler]
+$$$ exec p2 : [../rgero.filler]
 Plateau 15 17:
     01234567890123456
-000 XXXXXXXXXXXXXXXXX
-001 XXXXXXXXXXXXXXXXX
-002 OOOOOOOOOXXXXXXXX
-003 oOOOOOOOOXXXXXXXX
-004 oOOOOOOOOX.XXXXXX
-005 OOOOOOOOOXXXXXXXX
-006 OOOOOOOOOOOOXXXXX
-007 OOOOOOOOOOOOOOX.X
-008 OOOOOOOOOOOXXXXXX
-009 OOOOOOOOOOOOOOOX.
-010 OOOOOOOOOOOOOOXXX
-011 OOOOOOOOOOOOOXXXX
-012 OOOOOOOOOOOOOOXXO
-013 OOOOOOOOOOOOOOOOO
-014 OOOOOOOOOOOOOOOOO
-Piece 1 3:
-**.
+000 .................
+001 .................
+002 .................
+003 .................
+004 .................
+005 .................
+006 .................
+007 .................
+008 ..OOO..........x.
+009 ...OO........Xxx.
+010 ....OO.......XXXX
+011 .....O.......XXXX
+012 .....O........X..
+013 .................
+014 .................
+Piece 2 3:
+***
+..*

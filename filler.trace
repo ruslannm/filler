@@ -1,5 +1,5 @@
-seed = 5177
-./rgero.filler: Segfault at 118
-./rgero.filler won
+seed = 4362
+O: timedout
+./resources/players/grati.filler won
 Score:
-118AGAINST69
+7AGAINST135

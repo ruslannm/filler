@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 17:17:46 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/25 14:40:42 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct
 	char		**piece;
 	int			piece_height;
 	int			piece_width;
+	int			piece_set;
+	int			piece_min;
 	int			piece_h;
 	int			piece_w;
 }				t_map;

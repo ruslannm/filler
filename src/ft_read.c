@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 18:51:05 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/25 14:52:03 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,9 @@ void	ft_read_piece(t_map *map)
 	fd1 = open("result1.txt", O_WRONLY | O_APPEND);
 	
 	ft_get_size(map, "Piece");
+	map->piece_set = 0;
+	map->piece_h = 0;
+	map->piece_w = 0;
 	map->piece = (char**)malloc(sizeof(char *) * map->piece_height);
 	i = -1;
 	while (++i < map->piece_height)
