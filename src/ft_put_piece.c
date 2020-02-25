@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/25 17:27:30 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/25 19:30:17 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	ft_set_piece(t_map *map, int sum, int h, int w)
 }
 
 
-void		ft_put_piece(t_map *map)
+int		ft_put_piece(t_map *map)
 {
 	int	h;
 	int	w;
@@ -116,16 +116,23 @@ void		ft_put_piece(t_map *map)
 		}
 		h++;
 	}
+	ft_del_piece(map);
+/*	ft_putnbr(map->piece_h);
+	write(1, " ", 1);
+	ft_putnbr(map->piece_w);
+	write(1, "\n", 1);
+*/
 	ft_printf("%d %d\n", map->piece_h, map->piece_w);
 	if (0 == map->piece_set)
-		exit(0);
+		return (-1);
+	return (0);
 }
 
 void	ft_del_piece(t_map *map)
 {
 	int i;
 
-	i = map->piece_height;
+	i = 0;
 	while (i < map->piece_height)
 		ft_strdel(&map->piece[i++]);
 	free(map->piece);

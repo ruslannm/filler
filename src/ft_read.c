@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/25 14:52:03 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/25 19:44:29 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void	ft_read_piece(t_map *map)
 	while (++i < map->piece_height)
 		{
 		get_next_line(map->fd, &map->piece[i]);
-		write(fd1, map->piece[i], ft_strlen(map->piece[i]));
+		ft_putstr_fd(map->piece[i], fd1);
+		ft_putstr_fd("\n", fd1);
 		}
 	write(fd1, "--\n", 3);
 	close(fd1);

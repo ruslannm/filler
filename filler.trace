@@ -1,6 +1,5 @@
-seed = 117
-O: error on input
-./rgero.filler: Segfault at 1
-./resources/players/abanlin.filler won
+seed = 4671
+./rgero.filler: Segfault at 0
+./resources/players/superjeannot.filler won
 Score:
-1AGAINST1058
+0AGAINST1927

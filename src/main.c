@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:12:17 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/25 16:13:51 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/25 19:36:25 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	main(void)
 	int		fd;
 	int fd1;
 
-//	fd = open("filler2.txt", O_RDONLY);
-	fd = 0;
+	fd = open("filler2.txt", O_RDONLY);
+//	fd = 0;
 	fd1 = open("result1.txt", O_WRONLY | O_APPEND);
 	write(fd1, "start", 5);
 	close(fd1);
@@ -55,13 +55,8 @@ int	main(void)
 		ft_read_piece(map);
 		ft_heat(map);
 		ft_print_map(map);
-		ft_put_piece(map);
-		ft_del_piece(map);
-		if (fd)
-		{
-			close(fd);
+		if (-1 == ft_put_piece(map))
 			break ;
-		}
 	}
 //	ft_del_map(map);
 //	ft_print_map(map);
