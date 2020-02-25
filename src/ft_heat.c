@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 13:56:41 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 16:23:21 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/25 16:12:05 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_heat(t_map *map)
 	int	max;
 	int	i;
 
-	max = (map->map_height > map->map_width\
+	max = 2 * (map->map_height > map->map_width\
 		? map->map_height : map->map_width);
 	i = -1;
 	while (i < max)

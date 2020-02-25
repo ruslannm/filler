@@ -1,5 +1,6 @@
-seed = 7434
-O: timedout
-./resources/players/grati.filler won
+seed = 117
+O: error on input
+./rgero.filler: Segfault at 1
+./resources/players/abanlin.filler won
 Score:
-20AGAINST83
+1AGAINST1058
