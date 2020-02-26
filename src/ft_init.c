@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/26 16:25:57 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/26 19:26:35 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,26 +46,62 @@ void	ft_get_size(t_map **map, char *str)
 	ft_strdel(&line);
 }
 
+int	ft_get_map(t_map **map)
+{
+	int	height;
+
+	if (!((*map)->map = (int **)malloc(sizeof(int *) * (*map)->map_height)))
+		return (-1);
+	height = 0;
+	while (height < (*map)->map_height)
+	{
+		if (!((*map)->map[height++] =\
+		(int*)malloc(sizeof(int) * (*map)->map_width)))
+		{
+			ft_del_map(*map, height);
+			return (-1);
+		}
+	}
+	return (0);
+}
+
+int	ft_get_map_last(t_map **map)
+{
+	int	height;
+
+	if (!((*map)->map_last = (int **)malloc(sizeof(int *) * (*map)->map_height)))
+		return (-1);
+	height = 0;
+	while (height < (*map)->map_height)
+	{
+		if (!((*map)->map_last[height++] =\
+		(int*)malloc(sizeof(int) * (*map)->map_width)))
+		{
+			ft_del_map(*map, height);
+			return (-1);
+		}
+	}
+	return (0);
+}
+
 t_map	*ft_init(int fd)
 {
 	t_map	*map;
-	int		height;
 
 	if (!(map = (t_map*)malloc(sizeof(t_map))))
 		return (NULL);
 	map->fd = fd;
 	ft_get_player(&map);
 	ft_get_size(&map, "Plateau");
-	map->map = (int **)malloc(sizeof(int *) * map->map_height);
-	height = 0;
-	while (height < map->map_height)
+	if (-1 == ft_get_map(&map))
 	{
-		if (!(map->map[height++] =\
-		(int*)malloc(sizeof(int) * map->map_width)))
-		{
-			ft_del_map(map, height);
-			return (NULL);
-		}
+		free(map);
+		return (NULL);
+	}
+	if (-1 == ft_get_map_last(&map))
+	{
+		free(map);
+		return (NULL);
 	}
 	return (map);
 }

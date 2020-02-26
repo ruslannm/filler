@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/26 16:33:28 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/26 19:34:59 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 # define PLAYER	-2
 # define ENEMY	0
+# define LAST	-1
 # define DOT	-3
 
 typedef struct
@@ -30,6 +31,7 @@ typedef struct
 	char		player;
 	char		enemy;
 	int			**map;
+	int			**map_last;
 	int			map_height;
 	int			map_width;
 	char		**piece;
@@ -47,6 +49,7 @@ void			ft_read_plateau(t_map **map);
 int				ft_read_piece(t_map **map);
 void			ft_get_size(t_map **map, char *str);
 void			ft_heat(t_map **map);
+void			ft_heat_last(t_map **map);
 int				ft_put_piece(t_map **map, int h, int w);
 void			ft_del_piece(t_map *map);
 void			ft_del_map(t_map *map, int height);

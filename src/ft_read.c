@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/26 16:34:15 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/26 19:11:13 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,14 @@ void	ft_fill_line_map(t_map *map, int i, char *str)
 		if ('.' == str[k])
 			map->map[i][k] = DOT;
 		else
-			map->map[i][k] =\
-			(str[k] == map->player || str[k] == map->player + 32)\
-			? PLAYER : ENEMY;
+		{
+			if (str[k] == map->enemy)
+				map->map[i][k] = ENEMY;
+			else if (str[k] == map->enemy + 32)
+				map->map[i][k] = LAST;
+			else
+				map->map[i][k] = PLAYER;
+		}
 		k++;
 	}
 }
