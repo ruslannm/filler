@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/26 16:29:53 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/26 17:08:01 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,8 @@ int		ft_put_piece(t_map **map, int h, int w)
 		}
 		h++;
 	}
-	ft_del_piece(*map);
 	ft_printf("%d %d\n", (*map)->piece_h, (*map)->piece_w);
+	ft_del_piece(*map);
 	if (0 == (*map)->piece_set)
 		return (-1);
 	return (0);
