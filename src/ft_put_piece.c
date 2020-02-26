@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/25 19:30:17 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/26 15:44:41 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,46 +84,40 @@ int		ft_check(t_map *map, int h, int w)
 	return (ret);
 }
 
-void	ft_set_piece(t_map *map, int sum, int h, int w)
+void	ft_set_piece(t_map **map, int sum, int h, int w)
 {
-	map->piece_set = 1;
-	map->piece_min = sum;
-	map->piece_h = h;
-	map->piece_w = w;
+	(*map)->piece_set = 1;
+	(*map)->piece_min = sum;
+	(*map)->piece_h = h;
+	(*map)->piece_w = w;
 }
 
-
-int		ft_put_piece(t_map *map)
+int		ft_put_piece(t_map **map)
 {
 	int	h;
 	int	w;
 	int	sum;
 
-	map->piece_min = ft_get_sum_max(map);
+	(*map)->piece_min = ft_get_sum_max(*map);
 	h = 0;
-	while (h + map->piece_height <= map->map_height)
+	while (h + (*map)->piece_height <= (*map)->map_height)
 	{
 		w = 0;
-		while (w + map->piece_width <= map->map_width)
+		while (w + (*map)->piece_width <= (*map)->map_width)
 		{
-			if (ft_check(map, h, w))
+			if (ft_check(*map, h, w))
 			{
-				sum = ft_get_sum(map, h, w);
-				if (sum <= map->piece_min)
+				sum = ft_get_sum(*map, h, w);
+				if (sum <= (*map)->piece_min)
 					ft_set_piece(map, sum, h, w);
 			}
 			w++;
 		}
 		h++;
 	}
-	ft_del_piece(map);
-/*	ft_putnbr(map->piece_h);
-	write(1, " ", 1);
-	ft_putnbr(map->piece_w);
-	write(1, "\n", 1);
-*/
-	ft_printf("%d %d\n", map->piece_h, map->piece_w);
-	if (0 == map->piece_set)
+	ft_del_piece(*map);
+	ft_printf("%d %d\n", (*map)->piece_h, (*map)->piece_w);
+	if (0 == (*map)->piece_set)
 		return (-1);
 	return (0);
 }

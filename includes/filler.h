@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/25 18:11:29 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/26 15:37:48 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 
 typedef struct
 {
+	int			fd_log;
 	int			fd;
 	char		player;
 	char		enemy;
@@ -43,11 +44,11 @@ typedef struct
 
 t_map	*ft_init(int fd);
 char	*ft_find_line(int fd, char *needle);
-void	ft_read_plateau(t_map *map);
-void	ft_read_piece(t_map *map);
-void	ft_get_size(t_map *map, char *str);
-void	ft_heat(t_map *map);
-int		ft_put_piece(t_map *map);
+void	ft_read_plateau(t_map **map);
+void	ft_read_piece(t_map **map);
+void	ft_get_size(t_map **map, char *str);
+void	ft_heat(t_map **map);
+int		ft_put_piece(t_map **map);
 void	ft_del_piece(t_map *map);
 void	ft_del_map(t_map *map);
 

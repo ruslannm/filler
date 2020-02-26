@@ -1,5 +1,4 @@
-seed = 4671
-./rgero.filler: Segfault at 0
-./resources/players/superjeannot.filler won
+seed = 2539
+./rgero.filler won
 Score:
-0AGAINST1927
+1583AGAINST92
