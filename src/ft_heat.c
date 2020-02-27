@@ -148,3 +148,4 @@ void	ft_heat_last(t_map **map)
 		i++;
 	}
 }
+

@@ -58,6 +58,28 @@ int		ft_get_sum(t_map *map, int h, int w)
 	return (ret);
 }
 
+int		ft_get_distance(t_map *map, int h, int w)
+{
+	int ret;
+	int	i;
+	int	j;
+
+	ret = 0;
+	i = 0;
+	while (i < map->piece_height)
+	{
+		j = 0;
+		while (j < map->piece_width)
+		{
+			if ('*' == map->piece[i][j])
+				ret += map->map[h + i][w + j];
+			j++;
+		}
+		i++;
+	}
+	return (ret);
+}
+
 int		ft_check(t_map *map, int h, int w)
 {
 	int	ret;
@@ -95,6 +117,7 @@ void	ft_set_piece(t_map **map, int sum, int h, int w)
 int		ft_put_piece(t_map **map, int h, int w)
 {
 	int	sum;
+	int	distance;
 
 	(*map)->piece_min = ft_get_sum_max(*map);
 	h = 0;
@@ -106,6 +129,7 @@ int		ft_put_piece(t_map **map, int h, int w)
 			if (ft_check(*map, h, w))
 			{
 				sum = ft_get_sum(*map, h, w);
+				distance = ft_get_distance(*map, h, w);
 				if (sum <= (*map)->piece_min)
 					ft_set_piece(map, sum, h, w);
 			}

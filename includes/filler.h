@@ -32,6 +32,8 @@ typedef struct
 	char		enemy;
 	int			**map;
 	int			**map_last;
+	int			last_corner[4];
+	int			piece_corner[4];
 	int			map_height;
 	int			map_width;
 	char		**piece;

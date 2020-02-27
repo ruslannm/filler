@@ -12,6 +12,55 @@
 
 #include "filler.h"
 
+/*
+**	corner[4] - coordinates of  rectangle
+*/
+
+void	ft_ini_corner(int **corner)
+{
+	*corner[0] = -1;
+	*corner[1] = -1;
+	*corner[2] = -1;
+	*corner[3] = -1;
+}
+
+void	ft_set_corner(int **corner, int h, int w)
+{
+	if (-1 == *corner[0])
+	{
+		*corner[0] = h;
+		*corner[1] = h;
+	}
+	if (h > *corner[1])
+		*corner[1] = h;
+	if (-1 == *corner[2])
+	{
+		*corner[2] = w;
+		*corner[3] = w;
+	}
+	if (w > *corner[3])
+		*corner[3] = w;
+}
+
+void	ft_get_last(t_map **map)
+{
+	int	h;
+	int	w;
+
+	h = 0;
+	while (h < (*map)->map_height)
+	{
+		w = 0;
+		while (w < (*map)->map_width)
+		{
+			if ((*map)->map[h][w] == LAST)
+				ft_set_corner(&((*map)->last_corner), h, w);
+			w++;
+		}
+		h++;
+	}
+}
+
 void	ft_fill_line_map(t_map *map, int i, char *str)
 {
 	int	k;
@@ -49,6 +98,8 @@ void	ft_read_plateau(t_map **map)
 		ft_fill_line_map(*map, i, line + 4);
 		ft_strdel(&line);
 	}
+	ft_ini_corner(&((*map)->last_corner));
+	ft_get_last(map);
 }
 
 int		ft_read_piece(t_map **map)
