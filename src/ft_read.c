@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/26 19:11:13 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/28 14:53:56 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,14 @@ void	ft_set_corner(int **corner, int h, int w)
 		*corner[2] = w;
 		*corner[3] = w;
 	}
+	if (w < *corner[2])
+		*corner[2] = w;
+
 	if (w > *corner[3])
 		*corner[3] = w;
 }
 
-void	ft_get_last(t_map **map)
+void	ft_get_last_corner(t_map **map)
 {
 	int	h;
 	int	w;
@@ -53,7 +56,7 @@ void	ft_get_last(t_map **map)
 		w = 0;
 		while (w < (*map)->map_width)
 		{
-			if ((*map)->map[h][w] == LAST)
+			if (LAST == (*map)->map[h][w])
 				ft_set_corner(&((*map)->last_corner), h, w);
 			w++;
 		}
@@ -99,7 +102,7 @@ void	ft_read_plateau(t_map **map)
 		ft_strdel(&line);
 	}
 	ft_ini_corner(&((*map)->last_corner));
-	ft_get_last(map);
+	ft_get_last_corner(map);
 }
 
 int		ft_read_piece(t_map **map)

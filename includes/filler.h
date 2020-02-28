@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/26 19:34:59 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/28 14:53:52 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,34 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-# define PLAYER	-2
-# define ENEMY	0
-# define LAST	-1
-# define DOT	-3
+# define PLAYER		-2
+# define ENEMY		0
+# define LAST		-1
+# define DOT		-3
 
+# define ABS(x)		x < 0 ? -x : x
+# define MAX(x, y)	x > y ? x : y
+	
 typedef struct
 {
-	int			fd;
-	char		player;
-	char		enemy;
-	int			**map;
-	int			**map_last;
-	int			last_corner[4];
-	int			piece_corner[4];
-	int			map_height;
-	int			map_width;
-	char		**piece;
-	int			piece_height;
-	int			piece_width;
-	int			piece_set;
-	int			piece_min;
-	int			piece_h;
-	int			piece_w;
-}				t_map;
+	int				fd;
+	char			player;
+	char			enemy;
+	int				**map;
+	int				**map_last;
+	int				last_corner[4];
+	int				piece_corner[4];
+	int				map_height;
+	int				map_width;
+	char			**piece;
+	int				piece_height;
+	int				piece_width;
+	int				piece_set;
+	int				piece_min_summa;
+	int				piece_min_distance;
+	int				piece_h;
+	int				piece_w;
+}					t_map;
 
 t_map			*ft_init(int fd);
 char			*ft_find_line(int fd, char *needle);
@@ -55,5 +59,7 @@ void			ft_heat_last(t_map **map);
 int				ft_put_piece(t_map **map, int h, int w);
 void			ft_del_piece(t_map *map);
 void			ft_del_map(t_map *map, int height);
+void			ft_ini_corner(int **corner);
+void			ft_set_corner(int **corner, int h, int w)
 
 #endif
