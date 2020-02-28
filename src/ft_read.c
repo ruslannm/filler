@@ -6,11 +6,30 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 16:20:02 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/28 16:46:31 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+
+void	ft_get_last_corner_start(t_map **map)
+{
+	int	h;
+	int	w;
+
+	h = 0;
+	while (h < (*map)->map_height)
+	{
+		w = 0;
+		while (w < (*map)->map_width)
+		{
+			if (ENEMY == (*map)->map[h][w])
+				ft_set_last_corner(map, h, w);
+			w++;
+		}
+		h++;
+	}
+}
 
 void	ft_get_last_corner(t_map **map)
 {
@@ -30,20 +49,7 @@ void	ft_get_last_corner(t_map **map)
 		h++;
 	}
 	if (-1 == (*map)->last_corner[0])
-	{
-		h = 0;
-		while (h < (*map)->map_height)
-		{
-			w = 0;
-			while (w < (*map)->map_width)
-			{
-				if (ENEMY == (*map)->map[h][w])
-					ft_set_last_corner(map, h, w);
-				w++;
-			}
-			h++;
-		}
-	}
+		ft_get_last_corner_start(map);
 }
 
 void	ft_fill_line_map(t_map *map, int i, char *str)

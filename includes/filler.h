@@ -6,15 +6,13 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 16:01:49 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/28 17:02:01 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLER_H
 # define FILLER_H
 
-# include <fcntl.h>
-# include <unistd.h>
 # include <stdlib.h>
 # include "libft.h"
 # include "get_next_line.h"
@@ -31,7 +29,6 @@ typedef struct
 	char			player;
 	char			enemy;
 	int				**map;
-	int				**map_last;
 	int				last_corner[4];
 	int				piece_corner[4];
 	int				map_height;
@@ -46,21 +43,23 @@ typedef struct
 	int				piece_w;
 }					t_map;
 
-t_map			*ft_init(int fd);
-char			*ft_find_line(int fd, char *needle);
-void			ft_read_plateau(t_map **map);
-int				ft_read_piece(t_map **map);
-void			ft_get_size(t_map **map, char *str);
-void			ft_heat(t_map **map);
-void			ft_heat_last(t_map **map);
-int				ft_put_piece(t_map **map, int h, int w);
-void			ft_del_piece(t_map *map);
-void			ft_del_map(t_map *map, int height);
-void			ft_ini_last_corner(t_map **map);
-void			ft_ini_piece_corner(t_map **map);
-void			ft_set_last_corner(t_map **map, int h, int w);
-void			ft_set_piece_corner(t_map **map, int h, int w);
-int				ft_abs(int i);
-int				ft_max(int a, int b);
+t_map				*ft_init(int fd);
+char				*ft_find_line(int fd, char *needle);
+void				ft_read_plateau(t_map **map);
+int					ft_read_piece(t_map **map);
+void				ft_get_size(t_map **map, char *str);
+void				ft_heat(t_map **map);
+int					ft_put_piece(t_map **map, int h, int w);
+void				ft_del_piece(t_map *map);
+void				ft_del_map(t_map *map, int height);
+void				ft_ini_last_corner(t_map **map);
+void				ft_ini_piece_corner(t_map **map);
+void				ft_set_last_corner(t_map **map, int h, int w);
+void				ft_set_piece_corner(t_map **map, int h, int w);
+int					ft_abs(int i);
+int					ft_max(int a, int b);
+int					ft_get_sum(t_map *map, int h, int w);
+int					ft_get_distance(t_map **map, int h, int w);
+int					ft_get_sum_max(t_map *map);
 
 #endif
