@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 15:32:24 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/28 16:01:49 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@
 # define LAST		-1
 # define DOT		-3
 
-# define ABS(x)		x < 0 ? -x : x
-# define MAX(x, y)	x > y ? x : y
-	
 typedef struct
 {
 	int				fd;
@@ -63,5 +60,7 @@ void			ft_ini_last_corner(t_map **map);
 void			ft_ini_piece_corner(t_map **map);
 void			ft_set_last_corner(t_map **map, int h, int w);
 void			ft_set_piece_corner(t_map **map, int h, int w);
+int				ft_abs(int i);
+int				ft_max(int a, int b);
 
 #endif

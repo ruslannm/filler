@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/24 14:50:51 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/28 16:02:54 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,14 @@ char	*ft_find_line(int fd, char *needle)
 		ft_strdel(&ret);
 	}
 	return (ret);
+}
+
+int		ft_abs(int i)
+{
+	return (i < 0 ? -i : i);
+}
+
+int		ft_max(int a, int b)
+{
+	return (a > b ? a : b);
 }

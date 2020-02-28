@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 15:32:09 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/28 16:20:02 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,21 @@ void	ft_get_last_corner(t_map **map)
 			w++;
 		}
 		h++;
+	}
+	if (-1 == (*map)->last_corner[0])
+	{
+		h = 0;
+		while (h < (*map)->map_height)
+		{
+			w = 0;
+			while (w < (*map)->map_width)
+			{
+				if (ENEMY == (*map)->map[h][w])
+					ft_set_last_corner(map, h, w);
+				w++;
+			}
+			h++;
+		}
 	}
 }
 

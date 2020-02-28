@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 15:34:58 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/28 16:02:39 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int		ft_get_sum_max(t_map *map)
 		}
 		i++;
 	}
-	ret *= (map->map_height > map->map_width\
-		? map->map_height : map->map_width);
+	ret *= ft_max(map->map_height, map->map_width);
 	return (ret);
 }
 
@@ -50,7 +49,10 @@ int		ft_get_sum(t_map *map, int h, int w)
 		while (j < map->piece_width)
 		{
 			if ('*' == map->piece[i][j])
-				ret += map->map[h + i][w + j];
+			{
+				if (map->map[h + i][w + j] >= 0)
+					ret += map->map[h + i][w + j];
+			}
 			j++;
 		}
 		i++;
@@ -83,10 +85,10 @@ int		ft_get_distance(t_map **map, int h, int w)
 
 	ft_ini_piece_corner(map);
 	ft_get_piece_corner(map, h, w);
-	ret = ABS((*map)->last_corner[0] - (*map)->piece_corner[0]) +\
-			ABS((*map)->last_corner[1] - (*map)->piece_corner[1]) +\
-			ABS((*map)->last_corner[2] - (*map)->piece_corner[2]) +\
-			ABS((*map)->last_corner[3] - (*map)->piece_corner[3]);
+	ret = ft_abs((*map)->last_corner[0] - (*map)->piece_corner[0]) +\
+			ft_abs((*map)->last_corner[1] - (*map)->piece_corner[1]) +\
+			ft_abs((*map)->last_corner[2] - (*map)->piece_corner[2]) +\
+			ft_abs((*map)->last_corner[3] - (*map)->piece_corner[3]);
 	return (ret);
 }
 
@@ -131,7 +133,7 @@ int		ft_put_piece(t_map **map, int h, int w)
 	int	control[2];
 
 	(*map)->piece_min_summa = ft_get_sum_max(*map);
-	(*map)->piece_min_distance = 4 * MAX((*map)->piece_height, (*map)->map_width);
+	(*map)->piece_min_distance = 4 * ft_max((*map)->map_height, (*map)->map_width);
 	h = 0;
 	while (h + (*map)->piece_height <= (*map)->map_height)
 	{
