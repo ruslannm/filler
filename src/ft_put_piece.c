@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 14:53:56 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/28 15:34:58 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_get_piece_corner(t_map **map, int h, int w)
 		while (j < (*map)->piece_width)
 		{
 			if ('*' == (*map)->piece[i][j])
-				ft_set_corner(&((*map)->piece_corner), h + i, w + j);
+				ft_set_piece_corner(map, h + i, w + j);
 			j++;
 		}
 		i++;
@@ -81,8 +81,8 @@ int		ft_get_distance(t_map **map, int h, int w)
 {
 	int ret;
 
-	ft_ini_corner(&((*map)->piece_corner));
-	ft_get_pice_corner(map, h, w);
+	ft_ini_piece_corner(map);
+	ft_get_piece_corner(map, h, w);
 	ret = ABS((*map)->last_corner[0] - (*map)->piece_corner[0]) +\
 			ABS((*map)->last_corner[1] - (*map)->piece_corner[1]) +\
 			ABS((*map)->last_corner[2] - (*map)->piece_corner[2]) +\
@@ -117,12 +117,11 @@ int		ft_check(t_map *map, int h, int w)
 	return (ret);
 }
 
-void	ft_set_piece(t_map **map, int sum, int h, int w)
+void	ft_set_piece(t_map **map, int *control, int h, int w)
 {
 	(*map)->piece_set = 1;
-	(*map)->piece_min_summa = sum;
-	(*map)->piece_min_distance = sum;
-
+	(*map)->piece_min_summa = control[0];
+	(*map)->piece_min_distance = control[1];
 	(*map)->piece_h = h;
 	(*map)->piece_w = w;
 }
@@ -132,6 +131,7 @@ int		ft_put_piece(t_map **map, int h, int w)
 	int	control[2];
 
 	(*map)->piece_min_summa = ft_get_sum_max(*map);
+	(*map)->piece_min_distance = 4 * MAX((*map)->piece_height, (*map)->map_width);
 	h = 0;
 	while (h + (*map)->piece_height <= (*map)->map_height)
 	{
@@ -140,10 +140,11 @@ int		ft_put_piece(t_map **map, int h, int w)
 		{
 			if (ft_check(*map, h, w))
 			{
-				sum = ft_get_sum(*map, h, w);
-				distance = ft_get_distance(*map, h, w);
-				if (sum <= (*map)->piece_min)
-					ft_set_piece(map, sum, h, w);
+				control[0] = ft_get_sum(*map, h, w);
+				control[1] = ft_get_distance(map, h, w);
+				if (control[0] <= (*map)->piece_min_summa && 
+					control[1] <= (*map)->piece_min_distance)
+					ft_set_piece(map, control, h, w);
 			}
 			w++;
 		}

@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 14:53:52 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/28 15:32:24 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,9 @@ void			ft_heat_last(t_map **map);
 int				ft_put_piece(t_map **map, int h, int w);
 void			ft_del_piece(t_map *map);
 void			ft_del_map(t_map *map, int height);
-void			ft_ini_corner(int **corner);
-void			ft_set_corner(int **corner, int h, int w)
+void			ft_ini_last_corner(t_map **map);
+void			ft_ini_piece_corner(t_map **map);
+void			ft_set_last_corner(t_map **map, int h, int w);
+void			ft_set_piece_corner(t_map **map, int h, int w);
 
 #endif
