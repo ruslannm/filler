@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/02 18:12:31 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/02 19:06:44 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct
 	int				**map;
 	int				last_corner[4];
 	int				piece_corner[4];
+	int				shape_corner[4];
 	int				map_height;
 	int				map_width;
 	char			**piece;

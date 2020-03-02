@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/02 18:48:33 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/02 18:58:15 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	ft_read_plateau(t_map **map)
 {
 	char	*line;
 	int		i;
-	int fd;
 
 	line = ft_find_line(0, "000");
 	i = 0;
@@ -87,9 +86,6 @@ void	ft_read_plateau(t_map **map)
 	while (++i < (*map)->map_height)
 	{
 		get_next_line(0, &line);
-		fd = open("filler.log", O_WRONLY | O_APPEND);
-		ft_printf_fd(fd, "%s\n", line);
-		close(fd);
 		ft_fill_line_map(*map, i, line + 4);
 		ft_strdel(&line);
 	}

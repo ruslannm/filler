@@ -2624,3 +2624,21 @@ Plateau 15 17:
 Piece 2 3:
 height = 2 3:
 width = 3:
+$$$ exec p1 : [./rgero.filler]
+ft_init=0
+ft_init2=0
+$$$ exec p1 : [./rgero.filler]
+ft_init=0
+ft_init2=0
+$$$ exec p1 : [./rgero.filler]
+ft_init=0
+ft_init2=0
+$$$ exec p1 : [./rgero.filler]
+ft_init=0
+ft_init2=0
+$$$ exec p1 : [./rgero.filler]
+ft_init=0
+ft_init2=0
+$$$ exec p1 : [./rgero.filler]
+ft_init=0
+ft_init2=0
