@@ -1,12 +1,4 @@
-# -------------- VM  version 1.1 ------------- #
-#                                              #
-# 42 / filler VM Developped by: Hcao - Abanlin #
-#                                              #
-# -------------------------------------------- #
-launched players/grati.filler
-$$$ exec p1 : [players/grati.filler]
-launched ../rgero.filler
-$$$ exec p2 : [../rgero.filler]
+$$$ exec p1 : [./rgero.filler]
 Plateau 15 17:
     01234567890123456
 000 .................
@@ -24,5 +16,6 @@ Plateau 15 17:
 012 ..............X..
 013 .................
 014 .................
-Piece 1 3:
-***
+Piece 2 2:
+.*
+**

@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/02 17:34:38 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/02 18:56:55 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,59 @@ int	ft_get_player(t_map **map)
 {
 	char	*line;
 	int		ret;
+	int fd;
 
-	get_next_line((*map)->fd, &line);
-	if ()
-
-	(*map)->player = 70 + (line[10] - '0') * 9;
-	(*map)->enemy = 97 - (line[10] - '0') * 9;
+	get_next_line(0, &line);
+	fd = open("filler.log", O_WRONLY | O_APPEND);
+	ft_printf_fd(fd, "%s\n", line);
+	close (fd);
+	if (ft_strncmp("$$$ exec p", line, 10))
+		ret = -1;
+	else
+	{
+		if (ft_strlen(line) > 10 && ('1' == line[10] || '2' == line[10]))
+		{
+			(*map)->player = 70 + (line[10] - '0') * 9;
+			(*map)->enemy = 97 - (line[10] - '0') * 9;
+			ret = 0;
+		}
+		else
+			ret = -1;
+	}
 	ft_strdel(&line);
+	return (ret);
 }
 
-void	ft_get_size(t_map **map, char *str)
+int	ft_get_size_map(t_map **map)
 {
 	char	*line;
+	int		ret;
+	char	*height;
+	char	*width;
 
-	if (0 == (*map)->fd)
-		get_next_line((*map)->fd, &line);
-	else
-		line = ft_find_line((*map)->fd, str);
-	if (0 == ft_strcmp("Plateau", str))
-	{
-		(*map)->map_height = ft_atoi(ft_strchr(line, ' '));
-		(*map)->map_width = ft_atoi(ft_strrchr(line, ' '));
-	}
+	ret = 0;
+	get_next_line(0, &line);
+	if (ft_strncmp("Plateau ", line, 8))
+		ret = -1;
+	else if (ft_strlen(line) < 12)
+		ret = -1;
 	else
 	{
-		(*map)->piece_height = ft_atoi(ft_strchr(line, ' '));
-		(*map)->piece_width = ft_atoi(ft_strrchr(line, ' '));
+		height = ft_strchr(line, ' ') + 1;
+		width = ft_strrchr(line, ' ') + 1;
+		if (ft_isdigit(height[0]) && ft_isdigit(width[0]))
+		{
+			(*map)->map_height = ft_atoi(height);
+			(*map)->map_width = ft_atoi(width);
+		}
+		else
+			ret = -1;
 	}
 	ft_strdel(&line);
+	return (ret);
 }
 
-int		ft_get_map(t_map **map)
+int	ft_get_map(t_map **map)
 {
 	int	height;
 
@@ -65,17 +87,23 @@ int		ft_get_map(t_map **map)
 	return (0);
 }
 
-int		ft_init(t_map	**map, int fd)
+int	ft_init(t_map **map)
 {
+	int	ret;
+
+	ret = 0;
 	if (!(*map = (t_map*)malloc(sizeof(t_map))))
 		return (-1);
-	(*map)->fd = fd;
-	ft_get_player(map);
-	ft_get_size(map, "Plateau");
-	if (-1 == ft_get_map(map))
+	if (-1 == ft_get_player(map))
+		ret = -1;
+	else if (-1 == ft_get_size_map(map))
+		ret = -1;
+	else if (-1 == ft_get_map(map))
+		ret = -1;
+	if (-1 == ret)
 	{
 		free(*map);
-		return (-1);
+		return (ret);
 	}
-	return (0);
+	return (ret);
 }

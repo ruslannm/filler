@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_line.c                                     :+:      :+:    :+:   */
+/*   ft_auxiliary.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 16:41:39 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/02 18:56:24 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,33 @@ int		ft_abs(int i)
 int		ft_max(int a, int b)
 {
 	return (a > b ? a : b);
+}
+
+int		ft_get_size_piece(t_map **map)
+{
+	char	*line;
+	int		ret;
+	char	*height;
+	char	*width;
+
+	ret = 0;
+	get_next_line(0, &line);
+	if (ft_strncmp("Piece ", line, 6))
+		ret = -1;
+	else if (ft_strlen(line) < 10)
+		ret = -1;
+	else
+	{
+		height = ft_strchr(line, ' ') + 1;
+		width = ft_strrchr(line, ' ') + 1;
+		if (ft_isdigit(height[0]) && ft_isdigit(width[0]))
+		{
+			(*map)->piece_height = ft_atoi(height);
+			(*map)->piece_width = ft_atoi(width);
+		}
+		else
+			ret = -1;
+	}
+	ft_strdel(&line);
+	return (ret);
 }
