@@ -6,7 +6,7 @@
 #    By: rgero <rgero@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 15:46:56 by rgero             #+#    #+#              #
-#    Updated: 2020/02/22 16:09:40 by rgero            ###   ########.fr        #
+#    Updated: 2020/03/02 17:30:23 by rgero            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,11 +56,11 @@ $(NAME): $(OBJ)
 	ar -rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-$(OBJ_PATH)/%.o : $(SRC_PATH)/%.c
+$(OBJ_PATH)/%.o : $(SRC_PATH)/%.c includes/libft.h includes/get_next_line.h
 	/bin/mkdir -p $(OBJ_PATH)
 	$(CC) $(CFLAGS) $(HEADER) -o $@ -c $<
 
-$(OBJ_PATH)/%.o : $(SRC_PRINTF_PATH)/%.c
+$(OBJ_PATH)/%.o : $(SRC_PRINTF_PATH)/%.c ft_printf/includes/ft_printf.h
 	/bin/mkdir -p $(OBJ_PATH)
 	$(CC) $(CFLAGS) $(HEADER) -o $@ -c $<
 

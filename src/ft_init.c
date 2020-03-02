@@ -6,20 +6,20 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 16:44:10 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/02 17:34:38 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	ft_get_player(t_map **map)
+int	ft_get_player(t_map **map)
 {
 	char	*line;
+	int		ret;
 
-	if (0 == (*map)->fd)
-		get_next_line((*map)->fd, &line);
-	else
-		line = ft_find_line((*map)->fd, "exec p");
+	get_next_line((*map)->fd, &line);
+	if ()
+
 	(*map)->player = 70 + (line[10] - '0') * 9;
 	(*map)->enemy = 97 - (line[10] - '0') * 9;
 	ft_strdel(&line);
@@ -65,19 +65,17 @@ int		ft_get_map(t_map **map)
 	return (0);
 }
 
-t_map	*ft_init(int fd)
+int		ft_init(t_map	**map, int fd)
 {
-	t_map	*map;
-
-	if (!(map = (t_map*)malloc(sizeof(t_map))))
-		return (NULL);
-	map->fd = fd;
-	ft_get_player(&map);
-	ft_get_size(&map, "Plateau");
-	if (-1 == ft_get_map(&map))
+	if (!(*map = (t_map*)malloc(sizeof(t_map))))
+		return (-1);
+	(*map)->fd = fd;
+	ft_get_player(map);
+	ft_get_size(map, "Plateau");
+	if (-1 == ft_get_map(map))
 	{
-		free(map);
-		return (NULL);
+		free(*map);
+		return (-1);
 	}
-	return (map);
+	return (0);
 }

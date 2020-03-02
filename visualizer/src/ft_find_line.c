@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_read.c                                          :+:      :+:    :+:   */
+/*   ft_find_line.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 18:26:27 by rgero            ###   ########.fr       */
+/*   Updated: 2020/02/28 19:42:12 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "visualizer.h"
 
-void	ft_read_plateau(t_map **map)
+char	*ft_find_line1(int fd, char *needle)
 {
-	char	*line;
-	int		i;
+	char	*ret;
 
-	line = ft_find_line((*map)->fd, "000");
-	i = 0;
-	ft_fill_line_map(*map, i, line + 4);
-	ft_strdel(&line);
-	while (++i < (*map)->map_height)
+	ret = NULL;
+	while (get_next_line(fd, &ret))
 	{
-		get_next_line((*map)->fd, &line);
-		ft_fill_line_map(*map, i, line + 4);
-		ft_strdel(&line);
+		ft_putstr(ret);
+		if (ft_strstr(ret, needle))
+			break ;
+		ft_strdel(&ret);
 	}
+	return (ret);
+}
+
+int		ft_max(int a, int b)
+{
+	return (a > b ? a : b);
 }

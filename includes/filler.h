@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 17:02:01 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/02 15:24:39 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ typedef struct
 	int				piece_w;
 }					t_map;
 
-t_map				*ft_init(int fd);
+//t_map				*ft_init(int fd);
+int	ft_init(t_map	**map, int fd);
 char				*ft_find_line(int fd, char *needle);
 void				ft_read_plateau(t_map **map);
 int					ft_read_piece(t_map **map);
-void				ft_get_size(t_map **map, char *str);
+//void				ft_get_size(t_map **map, char *str);
+int	ft_get_size(t_map **map, char *str);
 void				ft_heat(t_map **map);
 int					ft_put_piece(t_map **map, int h, int w);
 void				ft_del_piece(t_map *map);
