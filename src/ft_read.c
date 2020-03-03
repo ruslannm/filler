@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 16:00:05 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 19:00:00 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,13 @@ int	ft_read_plateau(t_map **map)
 	int 	ret;
 
 	get_next_line((*map)->fd, &line);
+	if (0 == ft_strncmp("Plateau", line, 7))
+	{
+		ft_strdel(&line);
+		get_next_line((*map)->fd, &line);
+	}
+	ft_printf_fd((*map)->fd_log, "%s\n", line);
 	ft_strdel(&line);
-
 //	line = ft_find_line(0, "000");
 //	ft_fill_line_map(*map, i, line + 4);
 //	ft_strdel(&line);
@@ -117,9 +122,12 @@ int		ft_read_piece(t_map **map)
 
 	if (-1 == ft_get_size_piece(map))
 		return (-1);
+	(*map)->direction = ((*map)->direction ? 0 : 1);
 	(*map)->piece_set = 0;
 	(*map)->piece_h = 0;
 	(*map)->piece_w = 0;
+	(*map)->piece_min_distance =\
+		4 * ft_max((*map)->map_height, (*map)->map_width);
 	if (!((*map)->piece =\
 		(char**)malloc(sizeof(char *) * (*map)->piece_height)))
 		return (-1);

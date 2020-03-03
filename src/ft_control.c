@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:50:08 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 16:40:48 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 18:04:21 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_check_line_piece(t_map *map, char *str)
 	ret = ft_strlen(str);
 	ret = (ret == map->piece_width ? 0 : -1);
 	k = 0;
-	while (k < map->piece_width && 0 == ret)
+	while (k < map->piece_width && 0 <= ret)
 	{
 		if ('*' == str[k])
 			ret++;

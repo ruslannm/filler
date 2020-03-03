@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 16:39:24 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 18:56:15 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct
 	int				piece_min_distance;
 	int				piece_h;
 	int				piece_w;
+	int				direction;
 }					t_map;
 
 //t_map				*ft_init(int fd);

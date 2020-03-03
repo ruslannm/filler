@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:12:17 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 15:23:23 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 18:44:21 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,26 @@ void	ft_del_map(t_map *map, int height)
 	free(map->map);
 }
 
+void	ft_print_map(t_map *map)
+{
+	int	h;
+	int	w;
+	h = 0;
+	while (h < map->map_height)
+	{
+		w = 0;
+		ft_printf_fd(map->fd_log, "% 3d|", h);
+		while (w < map->map_width)
+		{
+			ft_printf_fd(map->fd_log, "% 3d", map->map[h][w]);
+			w++;
+		}
+		ft_printf_fd(map->fd_log, "\n");
+		h++;
+	}
+	ft_printf_fd(map->fd_log, "----\n");
+}
+
 int		main(void)
 {
 	t_map	*map;
@@ -39,14 +59,11 @@ int		main(void)
 	int fd;
 	int fd_log;
 
-	fd = open("filler2.txt", O_RDONLY);
+	fd = 0; //open("filler2.txt", O_RDONLY);
 
 	fd_log = open("filler.log", O_WRONLY | O_APPEND);
 	
 	ret = ft_init(&map, fd, fd_log);
-	
-
-	ft_printf_fd(fd_log, "ft_init=%d\n", ret);
 	if (0 == ret)
 	{
 		while (1)
@@ -56,6 +73,7 @@ int		main(void)
 			if (-1 == ft_read_piece(&map))
 				break ;
 			ft_heat(&map);
+			ft_print_map(map);
 			if (-1 == ft_put_piece(&map, 0, 0))
 				break ;
 		}
