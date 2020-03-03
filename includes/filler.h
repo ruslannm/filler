@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 18:56:15 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 19:22:31 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 typedef struct
 {
 	int				fd;
-	int				fd_log;
 	char			player;
 	char			enemy;
 	char			**in_map;
@@ -49,7 +48,7 @@ typedef struct
 
 //t_map				*ft_init(int fd);
 //int					ft_init(t_map **map);
-int					ft_init(t_map **map, int fd, int fd_log);
+int					ft_init(t_map **map, int fd);
 //char				*ft_find_line(int fd, char *needle);
 int					ft_read_plateau(t_map **map);
 int					ft_control_plateau(t_map **map);
@@ -71,5 +70,6 @@ int					ft_max(int a, int b);
 int					ft_get_sum(t_map *map, int h, int w);
 int					ft_get_distance(t_map **map, int h, int w);
 int					ft_get_sum_max(t_map *map);
+void				ft_del_in_map(t_map *map, int height);
 
 #endif

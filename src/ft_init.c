@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 18:57:09 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 19:08:09 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	ft_get_map(t_map **map)
 	return (0);
 }
 
-int	ft_init(t_map **map, int fd, int fd_log)
+int	ft_init(t_map **map, int fd)
 {
 	int	ret;
 
@@ -91,7 +91,6 @@ int	ft_init(t_map **map, int fd, int fd_log)
 	if (!(*map = (t_map*)malloc(sizeof(t_map))))
 		return (-1);
 	(*map)->fd = fd;
-	(*map)->fd_log = fd_log;
 	if (-1 == ft_get_player(map))
 		ret = -1;
 	else if (-1 == ft_get_size_map(map))

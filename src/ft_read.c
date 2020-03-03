@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 19:00:00 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 19:08:31 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ int	ft_read_plateau(t_map **map)
 		ft_strdel(&line);
 		get_next_line((*map)->fd, &line);
 	}
-	ft_printf_fd((*map)->fd_log, "%s\n", line);
 	ft_strdel(&line);
 //	line = ft_find_line(0, "000");
 //	ft_fill_line_map(*map, i, line + 4);

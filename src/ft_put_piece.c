@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 18:58:34 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 19:23:20 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int		ft_put_piece(t_map **map, int h, int w)
 	}
 	ft_printf("%d %d\n", (*map)->piece_h, (*map)->piece_w);
 	ft_del_piece(*map);
+	ft_del_in_map(*map, (*map)->map_height);
 	if (0 == (*map)->piece_set)
 		return (-1);
 	return (0);
