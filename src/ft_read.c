@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 15:15:28 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 16:00:05 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,34 @@ int	ft_read_plateau(t_map **map)
 	return (ret);
 }
 
+void	ft_get_shape_corner(t_map **map)
+{
+	int	i;
+	int	j;
+
+	(*map)->shape_corner[0] = -1;
+	(*map)->shape_corner[1] = -1;
+	(*map)->shape_corner[2] = -1;
+	(*map)->shape_corner[3] = -1;
+
+	i = 0;
+	while (i < (*map)->piece_height)
+	{
+		j = 0;
+		while (j < (*map)->piece_width)
+		{
+			if ('*' == (*map)->piece[i][j])
+				ft_set_shape_corner(map, i, j);
+			j++;
+		}
+		i++;
+	}
+}
+
 int		ft_read_piece(t_map **map)
 {
 	int		i;
+	int 	ret;
 
 	if (-1 == ft_get_size_piece(map))
 		return (-1);
@@ -101,5 +126,8 @@ int		ft_read_piece(t_map **map)
 	i = -1;
 	while (++i < (*map)->piece_height)
 		get_next_line((*map)->fd, &(*map)->piece[i]);
-	return (0);
+	ret = ft_control_piece(map);
+	if (0 == ret)
+		ft_get_shape_corner(map);
+	return (ret);
 }

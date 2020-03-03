@@ -6,12 +6,13 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 16:58:18 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 16:16:48 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
+/*
 int		ft_get_sum_max(t_map *map)
 {
 	int ret;
@@ -34,7 +35,7 @@ int		ft_get_sum_max(t_map *map)
 	ret *= ft_max(map->map_height, map->map_width);
 	return (ret);
 }
-
+*/
 int		ft_get_sum(t_map *map, int h, int w)
 {
 	int ret;

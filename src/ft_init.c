@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 15:22:04 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 16:15:48 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,7 @@ int	ft_init(t_map **map, int fd, int fd_log)
 		free(*map);
 		return (ret);
 	}
+	(*map)->piece_min_distance =\
+		4 * ft_max((*map)->map_height, (*map)->map_width);
 	return (ret);
 }

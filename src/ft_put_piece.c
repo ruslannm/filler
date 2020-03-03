@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 16:58:53 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 16:38:26 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ int		ft_check(t_map *map, int h, int w)
 	int	j;
 
 	ret = 0;
-	i = 0;
-	while (i < map->piece_height)
+	i = map->shape_corner[0];
+	while (i < map->shape_corner[1])
 	{
-		j = 0;
-		while (j < map->piece_width)
+		j = map->shape_corner[2];
+		while (j < map->shape_corner[3])
 		{
-			if (PLAYER == map->map[h + i][w + j] && '*' == map->piece[i][j])
+			if (PLAYER == map->map[h + i - map->shape_corner[0]][w + j - map->shape_corner[0]] && '*' == map->piece[i][j])
 				ret++;
-			if (ENEMY == map->map[h + i][w + j] && '*' == map->piece[i][j])
+			if (ENEMY == map->map[h + i - map->shape_corner[0]][w + j - map->shape_corner[2]] && '*' == map->piece[i][j])
 				return (0);
 			j++;
 		}
@@ -60,14 +60,11 @@ void	ft_control(t_map **map, int h, int w)
 
 int		ft_put_piece(t_map **map, int h, int w)
 {
-	(*map)->piece_min_summa = ft_get_sum_max(*map);
-	(*map)->piece_min_distance =\
-		4 * ft_max((*map)->map_height, (*map)->map_width);
-	h = 0;
-	while (h + (*map)->piece_height <= (*map)->map_height)
+	h = -(*map)->shape_corner[0];
+	while (h + (*map)->shape_corner[1] <= (*map)->map_height)
 	{
-		w = 0;
-		while (w + (*map)->piece_width <= (*map)->map_width)
+		w = -(*map)->shape_corner[2];
+		while (w + (*map)->shape_corner[3] <= (*map)->map_width)
 		{
 			if (ft_check(*map, h, w))
 				ft_control(map, h, w);

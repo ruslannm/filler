@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 15:17:29 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 16:39:24 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int					ft_init(t_map **map, int fd, int fd_log);
 //char				*ft_find_line(int fd, char *needle);
 int					ft_read_plateau(t_map **map);
 int					ft_control_plateau(t_map **map);
+int					ft_control_piece(t_map **map);
 int					ft_read_piece(t_map **map);
 //void				ft_get_size(t_map **map, char *str);
 int					ft_get_size_piece(t_map **map);
@@ -63,6 +64,7 @@ void				ft_ini_last_corner(t_map **map);
 void				ft_ini_piece_corner(t_map **map);
 void				ft_set_last_corner(t_map **map, int h, int w);
 void				ft_set_piece_corner(t_map **map, int h, int w);
+void				ft_set_shape_corner(t_map **map, int h, int w);
 int					ft_abs(int i);
 int					ft_max(int a, int b);
 int					ft_get_sum(t_map *map, int h, int w);
