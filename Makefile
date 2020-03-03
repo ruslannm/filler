@@ -6,7 +6,7 @@
 #    By: rgero <rgero@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 15:46:56 by rgero             #+#    #+#              #
-#    Updated: 2020/03/02 17:44:45 by rgero            ###   ########.fr        #
+#    Updated: 2020/03/03 15:07:02 by rgero            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -c -Wall -Wextra -Werror -g
 
 SRC_PATH = src
 SRC_NAME = main.c ft_init.c ft_auxiliary.c ft_read.c ft_heat.c\
-			ft_put_piece.c ft_corner.c ft_move_piece.c
+			ft_put_piece.c ft_corner.c ft_move_piece.c ft_control.c
 
 SRC = $(addprefix $(SRC_PATH)/, $(SRC_NAME))
 

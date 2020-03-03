@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/02 18:56:24 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 15:39:04 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_get_size_piece(t_map **map)
 	char	*width;
 
 	ret = 0;
-	get_next_line(0, &line);
+	get_next_line((*map)->fd, &line);
 	if (ft_strncmp("Piece ", line, 6))
 		ret = -1;
 	else if (ft_strlen(line) < 10)

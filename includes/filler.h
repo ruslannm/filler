@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/02 19:06:44 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 15:17:29 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@
 
 typedef struct
 {
+	int				fd;
+	int				fd_log;
 	char			player;
 	char			enemy;
+	char			**in_map;
 	int				**map;
 	int				last_corner[4];
 	int				piece_corner[4];
@@ -44,9 +47,11 @@ typedef struct
 }					t_map;
 
 //t_map				*ft_init(int fd);
-int					ft_init(t_map **map);
-char				*ft_find_line(int fd, char *needle);
-void				ft_read_plateau(t_map **map);
+//int					ft_init(t_map **map);
+int					ft_init(t_map **map, int fd, int fd_log);
+//char				*ft_find_line(int fd, char *needle);
+int					ft_read_plateau(t_map **map);
+int					ft_control_plateau(t_map **map);
 int					ft_read_piece(t_map **map);
 //void				ft_get_size(t_map **map, char *str);
 int					ft_get_size_piece(t_map **map);

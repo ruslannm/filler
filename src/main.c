@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:12:17 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/02 18:45:27 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 15:23:23 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,22 @@ int		main(void)
 	t_map	*map;
 	int		ret;
 	int fd;
+	int fd_log;
 
-	fd = open("filler.log", O_WRONLY | O_APPEND);
-	ret = ft_init(&map);
-	ft_printf_fd(fd, "ft_init=%d\n", ret);
-	close (fd);
+	fd = open("filler2.txt", O_RDONLY);
+
+	fd_log = open("filler.log", O_WRONLY | O_APPEND);
+	
+	ret = ft_init(&map, fd, fd_log);
+	
+
+	ft_printf_fd(fd_log, "ft_init=%d\n", ret);
 	if (0 == ret)
 	{
-	fd = open("filler.log", O_WRONLY | O_APPEND);
-	ft_printf_fd(fd, "ft_init2=%d\n", ret);
-	close (fd);
-	
 		while (1)
 		{
-			ft_read_plateau(&map);
+			if (-1 == ft_read_plateau(&map))
+				break;
 			if (-1 == ft_read_piece(&map))
 				break ;
 			ft_heat(&map);
@@ -60,5 +62,7 @@ int		main(void)
 		ft_del_map(map, map->map_height);
 		free(map);
 	}
+	close (fd);
+	close (fd_log);
 	return (ret);
 }

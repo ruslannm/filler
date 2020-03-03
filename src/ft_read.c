@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/02 18:58:15 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 15:15:28 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,45 +52,38 @@ void	ft_get_last_corner(t_map **map)
 		ft_get_last_corner_start(map);
 }
 
-void	ft_fill_line_map(t_map *map, int i, char *str)
-{
-	int	k;
 
-	k = 0;
-	while (k < map->map_width && str[k])
-	{
-		if ('.' == str[k])
-			map->map[i][k] = DOT;
-		else
-		{
-			if (str[k] == map->enemy)
-				map->map[i][k] = ENEMY;
-			else if (str[k] == map->enemy + 32)
-				map->map[i][k] = LAST;
-			else
-				map->map[i][k] = PLAYER;
-		}
-		k++;
-	}
-}
-
-void	ft_read_plateau(t_map **map)
+int	ft_read_plateau(t_map **map)
 {
 	char	*line;
 	int		i;
+	int 	ret;
 
-	line = ft_find_line(0, "000");
-	i = 0;
-	ft_fill_line_map(*map, i, line + 4);
+	get_next_line((*map)->fd, &line);
 	ft_strdel(&line);
+
+//	line = ft_find_line(0, "000");
+//	ft_fill_line_map(*map, i, line + 4);
+//	ft_strdel(&line);
+	if (!((*map)->in_map =\
+		(char**)malloc(sizeof(char *) * (*map)->map_height)))
+		return (-1);
+	i = -1;
 	while (++i < (*map)->map_height)
-	{
+		get_next_line((*map)->fd, &(*map)->in_map[i]);
+/*	{
 		get_next_line(0, &line);
 		ft_fill_line_map(*map, i, line + 4);
 		ft_strdel(&line);
 	}
-	ft_ini_last_corner(map);
-	ft_get_last_corner(map);
+*/
+	ret = ft_control_plateau(map);
+	if (0 == ret)
+	{
+		ft_ini_last_corner(map);
+		ft_get_last_corner(map);
+	}
+	return (ret);
 }
 
 int		ft_read_piece(t_map **map)
@@ -107,6 +100,6 @@ int		ft_read_piece(t_map **map)
 		return (-1);
 	i = -1;
 	while (++i < (*map)->piece_height)
-		get_next_line(0, &(*map)->piece[i]);
+		get_next_line((*map)->fd, &(*map)->piece[i]);
 	return (0);
 }

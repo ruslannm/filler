@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/02 18:56:55 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/03 15:22:04 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,8 @@ int	ft_get_player(t_map **map)
 {
 	char	*line;
 	int		ret;
-	int fd;
 
-	get_next_line(0, &line);
-	fd = open("filler.log", O_WRONLY | O_APPEND);
-	ft_printf_fd(fd, "%s\n", line);
-	close (fd);
+	get_next_line((*map)->fd, &line);
 	if (ft_strncmp("$$$ exec p", line, 10))
 		ret = -1;
 	else
@@ -47,7 +43,7 @@ int	ft_get_size_map(t_map **map)
 	char	*width;
 
 	ret = 0;
-	get_next_line(0, &line);
+	get_next_line((*map)->fd, &line);
 	if (ft_strncmp("Plateau ", line, 8))
 		ret = -1;
 	else if (ft_strlen(line) < 12)
@@ -87,13 +83,15 @@ int	ft_get_map(t_map **map)
 	return (0);
 }
 
-int	ft_init(t_map **map)
+int	ft_init(t_map **map, int fd, int fd_log)
 {
 	int	ret;
 
 	ret = 0;
 	if (!(*map = (t_map*)malloc(sizeof(t_map))))
 		return (-1);
+	(*map)->fd = fd;
+	(*map)->fd_log = fd_log;
 	if (-1 == ft_get_player(map))
 		ret = -1;
 	else if (-1 == ft_get_size_map(map))
