@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 17:06:38 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 18:15:38 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct
 	char			enemy;
 	char			**in_map;
 	int				**map;
+	int				opposite_reach;
 	int				opposite_corner[4];
 	int				last_corner[4];
 	int				piece_corner[4];
@@ -42,6 +43,7 @@ typedef struct
 	int				piece_set;
 	int				piece_min_summa;
 	int				piece_min_distance;
+	int				piece_min_distance_opposite;
 	int				piece_h;
 	int				piece_w;
 	int				direction;
@@ -66,10 +68,12 @@ void				ft_ini_piece_corner(t_map **map);
 void				ft_set_last_corner(t_map **map, int h, int w);
 void				ft_set_piece_corner(t_map **map, int h, int w);
 void				ft_set_shape_corner(t_map **map, int h, int w);
+void				ft_set_opposite_corner(t_map **map, int height, int width);
 int					ft_abs(int i);
 int					ft_max(int a, int b);
 int					ft_get_sum(t_map *map, int h, int w);
 int					ft_get_distance(t_map **map, int h, int w);
+int					ft_get_distance_opposite(t_map **map);
 int					ft_get_sum_max(t_map *map);
 void				ft_del_in_map(t_map *map, int height);
 

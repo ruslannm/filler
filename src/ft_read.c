@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 17:10:43 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 18:32:25 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,25 @@ void	ft_get_last_corner_start(t_map **map)
 	}
 }
 
+void	ft_get_opposite_corner(t_map **map)
+{
+	int	h;
+	int	w;
+
+	h = 0;
+	while (h < (*map)->map_height)
+	{
+		w = 0;
+		while (w < (*map)->map_width)
+		{
+			if (PLAYER == (*map)->map[h][w])
+				ft_set_opposite_corner(map, h, w);
+			w++;
+		}
+		h++;
+	}
+}
+
 void	ft_get_last_corner(t_map **map)
 {
 	int	h;
@@ -49,7 +68,10 @@ void	ft_get_last_corner(t_map **map)
 		h++;
 	}
 	if (-1 == (*map)->last_corner[0])
+	{
 		ft_get_last_corner_start(map);
+		ft_get_opposite_corner(map);
+	}
 }
 
 
@@ -77,7 +99,9 @@ int	ft_read_plateau(t_map **map)
 	{
 		ft_ini_last_corner(map);
 		ft_get_last_corner(map);
-		ft_get_opposite_corner(map);
+		if ((*map)->map[(*map)->opposite_corner[0]][(*map)->opposite_corner[2]] != '.')
+		(*map)->opposite_reach = 1;
+	//	ft_get_opposite_corner(map);
 	}
 	return (ret);
 }
@@ -118,6 +142,8 @@ int		ft_read_piece(t_map **map)
 	(*map)->piece_h = 0;
 	(*map)->piece_w = 0;
 	(*map)->piece_min_distance =\
+		4 * ft_max((*map)->map_height, (*map)->map_width);
+	(*map)->piece_min_distance_opposite =\
 		4 * ft_max((*map)->map_height, (*map)->map_width);
 	if (!((*map)->piece =\
 		(char**)malloc(sizeof(char *) * (*map)->piece_height)))
