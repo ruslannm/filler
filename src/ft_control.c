@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:50:08 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 18:04:21 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 15:15:30 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	ft_control_plateau(t_map **map)
 	{
 		ret = ft_fill_line_map(*map, i, (*map)->in_map[i]);
 	}
+	ft_del_in_map(*map, (*map)->map_height);
 	return (ret);
 }
 
@@ -92,7 +93,8 @@ int	ft_control_piece(t_map **map)
 	}
 	if (ret > 0)
 	{
-		(*map)->piece_min_summa = ret * ft_max((*map)->map_height, (*map)->map_width); 
+		(*map)->piece_min_summa =\
+			ret * ft_max((*map)->map_height, (*map)->map_width);
 		ret = 0;
 	}
 	else

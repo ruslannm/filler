@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 19:23:20 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 16:17:01 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,25 @@ void	ft_control(t_map **map, int h, int w)
 
 	control[0] = ft_get_sum(*map, h, w);
 	control[1] = ft_get_distance(map, h, w);
+
+	if (control[0] < (*map)->piece_min_summa)
+	{
+		if (control[1] <= (*map)->piece_min_distance)
+			ft_set_piece(map, control, h, w);
+	}
+	else if (control[0] == (*map)->piece_min_summa)
+	{
+		if (control[1] < (*map)->piece_min_distance)
+			ft_set_piece(map, control, h, w);
+	}
+/*
+	if (control[1] < (*map)->piece_min_distance)
+		ft_set_piece(map, control, h, w);
+	else if (control[0] < (*map)->piece_min_summa)
+		ft_set_piece(map, control, h, w);
+
+*/
+	/*
 	if ((*map)->direction)
 	{
 		if (control[0] <= (*map)->piece_min_summa &&\
@@ -65,7 +84,7 @@ void	ft_control(t_map **map, int h, int w)
 			control[1] < (*map)->piece_min_distance)
 			ft_set_piece(map, control, h, w);
 	}
-
+*/
 //	if (control[0] <= (*map)->piece_min_summa)
 //		ft_set_piece(map, control, h, w);
 }
@@ -86,7 +105,7 @@ int		ft_put_piece(t_map **map, int h, int w)
 	}
 	ft_printf("%d %d\n", (*map)->piece_h, (*map)->piece_w);
 	ft_del_piece(*map);
-	ft_del_in_map(*map, (*map)->map_height);
+//	ft_del_in_map(*map, (*map)->map_height);
 	if (0 == (*map)->piece_set)
 		return (-1);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:12:17 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 19:21:32 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 16:00:52 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ void	ft_del_map(t_map *map, int height)
 	while (i < height)
 		free(map->map[i++]);
 	free(map->map);
-	i = 0;
-	while (i < height)
-		free(map->in_map[i++]);
-	free(map->in_map);
-
 }
 
 void	ft_del_in_map(t_map *map, int height)
@@ -42,33 +37,35 @@ void	ft_del_in_map(t_map *map, int height)
 	int i;
 
 	i = 0;
-	i = 0;
 	while (i < height)
 		free(map->in_map[i++]);
 	free(map->in_map);
 }
 
-/*
 void	ft_print_map(t_map *map)
 {
 	int	h;
 	int	w;
+	int fd_log;
+
 	h = 0;
+	fd_log =  open("filler.log", O_APPEND | O_CREAT | O_WRONLY);
 	while (h < map->map_height)
 	{
 		w = 0;
-		ft_printf_fd(map->fd_log, "% 3d|", h);
+		ft_printf_fd(fd_log, "% 3d|", h);
 		while (w < map->map_width)
 		{
-			ft_printf_fd(map->fd_log, "% 3d", map->map[h][w]);
+			ft_printf_fd(fd_log, "% 3d", map->map[h][w]);
 			w++;
 		}
-		ft_printf_fd(map->fd_log, "\n");
+		ft_printf_fd(fd_log, "\n");
 		h++;
 	}
-	ft_printf_fd(map->fd_log, "----\n");
+	ft_printf_fd(fd_log, "----\n");
+	close(fd_log);
 }
-*/
+
 int		main(void)
 {
 	t_map	*map;
@@ -87,6 +84,7 @@ int		main(void)
 			if (-1 == ft_read_piece(&map))
 				break ;
 			ft_heat(&map);
+//ft_print_map(map);
 			if (-1 == ft_put_piece(&map, 0, 0))
 				break ;
 		}

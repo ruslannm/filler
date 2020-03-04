@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 19:08:09 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 15:21:32 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,13 @@ int	ft_get_map(t_map **map)
 	height = 0;
 	while (height < (*map)->map_height)
 	{
-		if (!((*map)->map[height++] =\
+		if (!((*map)->map[height] =\
 		(int*)malloc(sizeof(int) * (*map)->map_width)))
 		{
 			ft_del_map(*map, height);
 			return (-1);
 		}
+		height++;
 	}
 	return (0);
 }
