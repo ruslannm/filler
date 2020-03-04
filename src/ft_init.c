@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 18:18:45 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 19:42:47 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,9 @@ int	ft_init(t_map **map, int fd)
 	}
 	(*map)->direction = 0;
 	(*map)->opposite_reach = 0;
+	(*map)->piece_last_distance_opposite =\
+		4 * ft_max((*map)->map_height, (*map)->map_width);
+
 	(*map)->opposite_corner[0] = 0;
 	(*map)->opposite_corner[1] = 0;
 	(*map)->opposite_corner[2] = 0;

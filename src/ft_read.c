@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 18:32:25 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 19:41:00 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,6 @@ int	ft_read_plateau(t_map **map)
 	{
 		ft_ini_last_corner(map);
 		ft_get_last_corner(map);
-		if ((*map)->map[(*map)->opposite_corner[0]][(*map)->opposite_corner[2]] != '.')
-		(*map)->opposite_reach = 1;
 	//	ft_get_opposite_corner(map);
 	}
 	return (ret);

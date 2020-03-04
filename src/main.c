@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:12:17 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 18:28:56 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 19:55:16 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ void	ft_print_map(t_map *map)
 
 	h = 0;
 	fd_log =  open("filler.log", O_APPEND | O_CREAT | O_WRONLY);
+ft_printf_fd(fd_log, "oppo reach:%d, h1:%d, h2:%d, w1:%d, w2:%d\n----\n",\
+	map->opposite_reach, map->opposite_corner[0], map->opposite_corner[1], map->opposite_corner[2], map->opposite_corner[3]);
+	
+	close(fd_log);
 	while (h < map->map_height)
 	{
 		w = 0;
@@ -63,6 +67,9 @@ void	ft_print_map(t_map *map)
 		h++;
 	}
 	ft_printf_fd(fd_log, "----\n");
+	ft_printf_fd(fd_log, "oppo reach:%d, h1:%d, h2:%d, w1:%d, w2:%d\n----\n",\
+	map->opposite_reach, map->opposite_corner[0], map->opposite_corner[1], map->opposite_corner[2], map->opposite_corner[3]);
+
 	close(fd_log);
 }
 
@@ -72,7 +79,7 @@ int		main(void)
 	int		ret;
 	int fd;
 
-	fd = open("filler2.txt", O_RDONLY);
+	fd = 0; //open("filler2.txt", O_RDONLY);
 
 	ret = ft_init(&map, fd);
 	if (0 == ret)
@@ -83,10 +90,13 @@ int		main(void)
 				break;
 			if (-1 == ft_read_piece(&map))
 				break ;
+//ft_print_map(map);
 			ft_heat(&map);
-ft_print_map(map);
+//ft_print_map(map);
 			if (-1 == ft_put_piece(&map, 0, 0))
 				break ;
+ft_print_map(map);
+
 		}
 		ft_del_map(map, map->map_height);
 		free(map);

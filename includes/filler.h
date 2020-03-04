@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 18:15:38 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 19:40:48 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct
 	int				piece_min_summa;
 	int				piece_min_distance;
 	int				piece_min_distance_opposite;
+	int				piece_last_distance_opposite;
 	int				piece_h;
 	int				piece_w;
 	int				direction;
