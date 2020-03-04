@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/03 15:39:04 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 17:10:38 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,8 @@ int		ft_get_size_piece(t_map **map)
 	ft_strdel(&line);
 	return (ret);
 }
+
+void	ft_get_opposite_corner(t_map **map)
+{
+	
+};

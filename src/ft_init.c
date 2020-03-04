@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 15:21:32 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 17:07:24 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@ int	ft_init(t_map **map, int fd)
 		return (ret);
 	}
 	(*map)->direction = 0;
+	(*map)->opposite_corner[0] = -1;
 	return (ret);
 }

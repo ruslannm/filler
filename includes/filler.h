@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 15:09:16 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/04 17:06:38 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct
 	char			enemy;
 	char			**in_map;
 	int				**map;
+	int				opposite_corner[4];
 	int				last_corner[4];
 	int				piece_corner[4];
 	int				shape_corner[4];
