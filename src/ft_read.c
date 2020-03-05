@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 19:41:00 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 14:46:58 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ft_get_opposite_corner(t_map **map)
 		}
 		h++;
 	}
+	(*map)->opposite_reach = 0;
 }
 
 void	ft_get_last_corner(t_map **map)
@@ -68,10 +69,7 @@ void	ft_get_last_corner(t_map **map)
 		h++;
 	}
 	if (-1 == (*map)->last_corner[0])
-	{
 		ft_get_last_corner_start(map);
-		ft_get_opposite_corner(map);
-	}
 }
 
 
@@ -99,8 +97,9 @@ int	ft_read_plateau(t_map **map)
 	{
 		ft_ini_last_corner(map);
 		ft_get_last_corner(map);
-	//	ft_get_opposite_corner(map);
 	}
+	if (-1 == (*map)->opposite_reach)
+		ft_get_opposite_corner(map);
 	return (ret);
 }
 

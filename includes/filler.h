@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 19:40:48 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 15:11:27 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct
 	char			**in_map;
 	int				**map;
 	int				opposite_reach;
-	int				opposite_corner[4];
+	int				opposite_corner[2];
 	int				last_corner[4];
 	int				piece_corner[4];
 	int				shape_corner[4];
@@ -77,5 +77,6 @@ int					ft_get_distance(t_map **map, int h, int w);
 int					ft_get_distance_opposite(t_map **map);
 int					ft_get_sum_max(t_map *map);
 void				ft_del_in_map(t_map *map, int height);
+void				ft_get_piece_corner(t_map **map, int h, int w);
 
 #endif

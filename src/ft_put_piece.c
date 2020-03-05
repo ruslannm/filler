@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 19:59:21 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 15:11:54 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_control(t_map **map, int h, int w)
 	control[1] = ft_get_distance(map, h, w);
 	control[2] = ft_get_distance_opposite(map);
 
-	if (0 < (*map)->opposite_reach && 5 < (*map)->opposite_reach)
+	if (5 > (*map)->opposite_reach)
 	{
 		if (control[2] < (*map)->piece_min_distance_opposite)
 			ft_set_piece(map, control, h, w);
@@ -148,12 +148,11 @@ int		ft_put_piece(t_map **map, int h, int w)
 		return (-1);
 	}
 	ft_printf("%d %d\n", (*map)->piece_h, (*map)->piece_w);
+	ft_ini_piece_corner(map);
+	ft_get_piece_corner(map, (*map)->piece_h, (*map)->piece_w);
 	h = ft_get_distance_opposite(map);
 	if (h < (*map)->piece_last_distance_opposite)
-	{
 		(*map)->piece_last_distance_opposite = h;
-		(*map)->opposite_reach = 0;
-	}
 	else
 		(*map)->opposite_reach += 1;
 	ft_del_piece(*map);

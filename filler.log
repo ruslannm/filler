@@ -1,162 +1,328 @@
-    0| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
-  1| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
-  2| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
-  3| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
-  4| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
-  5| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
-  6| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
-  7| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
-  8| -3 -3 -2 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
-  9| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
- 10| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
- 11| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -1 -3 -3
- 12| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3  0 -3 -3
- 13| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
- 14| -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3 -3
+oppo reach:0, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:0, w2:0
+oppo reach:0, h:0, w:16
 ----
-  0| 14 13 12 11 11 11 11 11 11 11 11 11 11 11 11 11 11
-  1| 14 13 12 11 10 10 10 10 10 10 10 10 10 10 10 10 10
-  2| 14 13 12 11 10  9  9  9  9  9  9  9  9  9  9  9  9
-  3| 14 13 12 11 10  9  8  8  8  8  8  8  8  8  8  8  8
-  4| 14 13 12 11 10  9  8  7  7  7  7  7  7  7  7  7  7
-  5| 14 13 12 11 10  9  8  7  6  6  6  6  6  6  6  6  6
-  6| 14 13 12 11 10  9  8  7  6  5  5  5  5  5  5  5  5
-  7| 14 13 12 11 10  9  8  7  6  5  4  4  4  4  4  4  4
-  8| 14 13 -2 11 10  9  8  7  6  5  4  3  3  3  3  3  3
-  9| 14 13 12 11 10  9  8  7  6  5  4  3  2  2  2  2  2
- 10| 14 13 12 11 10  9  8  7  6  5  4  3  2  1  1  1  2
- 11| 14 13 12 11 10  9  8  7  6  5  4  3  2  1 -1  1  2
- 12| 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0  1  2
- 13| 14 13 12 11 10  9  8  7  6  5  4  3  2  1  1  1  2
- 14| 14 13 12 11 10  9  8  7  6  5  4  3  2  2  2  2  2
+oppo reach:0, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:0, w2:0
+oppo reach:0, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:16, w2:16
+oppo reach:0, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:16, w2:16
+oppo reach:0, h:0, w:16
 ----
-oppo reach:1, h1:0, h2:0, w1:16, w2:16
+oppo reach:0, h:0, w:16
 ----
-oppo reach:2, h1:0, h2:0, w1:16, w2:16
+oppo reach:0, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:16, w2:16
+oppo reach:0, h:0, w:16
 ----
-oppo reach:1, h1:0, h2:0, w1:16, w2:16
+oppo reach:1, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:16, w2:16
+oppo reach:1, h:0, w:16
 ----
-oppo reach:1, h1:0, h2:0, w1:16, w2:16
+oppo reach:1, h:0, w:16
 ----
-oppo reach:2, h1:0, h2:0, w1:16, w2:16
+oppo reach:1, h:0, w:16
 ----
-oppo reach:3, h1:0, h2:0, w1:16, w2:16
+oppo reach:1, h:0, w:16
 ----
-oppo reach:4, h1:0, h2:0, w1:16, w2:16
+oppo reach:2, h:0, w:16
 ----
-oppo reach:5, h1:0, h2:0, w1:16, w2:16
+oppo reach:2, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:16, w2:16
+oppo reach:2, h:0, w:16
 ----
-oppo reach:1, h1:0, h2:0, w1:16, w2:16
+oppo reach:3, h:0, w:16
 ----
-oppo reach:2, h1:0, h2:0, w1:16, w2:16
+oppo reach:4, h:0, w:16
 ----
-oppo reach:3, h1:0, h2:0, w1:16, w2:16
+oppo reach:5, h:0, w:16
 ----
-oppo reach:4, h1:0, h2:0, w1:16, w2:16
+oppo reach:6, h:0, w:16
 ----
-oppo reach:5, h1:0, h2:0, w1:16, w2:16
+oppo reach:7, h:0, w:16
 ----
-oppo reach:6, h1:0, h2:0, w1:16, w2:16
+oppo reach:7, h:0, w:16
 ----
-oppo reach:7, h1:0, h2:0, w1:16, w2:16
+oppo reach:8, h:0, w:16
 ----
-oppo reach:8, h1:0, h2:0, w1:16, w2:16
+oppo reach:9, h:0, w:16
 ----
-oppo reach:9, h1:0, h2:0, w1:16, w2:16
+oppo reach:10, h:0, w:16
 ----
-oppo reach:10, h1:0, h2:0, w1:16, w2:16
+oppo reach:11, h:0, w:16
 ----
-oppo reach:11, h1:0, h2:0, w1:16, w2:16
+oppo reach:12, h:0, w:16
 ----
-oppo reach:12, h1:0, h2:0, w1:16, w2:16
+oppo reach:13, h:0, w:16
 ----
-oppo reach:13, h1:0, h2:0, w1:16, w2:16
+oppo reach:14, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:16, w2:16
+oppo reach:15, h:0, w:16
 ----
-oppo reach:1, h1:0, h2:0, w1:0, w2:0
+oppo reach:16, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:0, w2:0
+oppo reach:17, h:0, w:16
 ----
-oppo reach:1, h1:0, h2:0, w1:0, w2:0
+oppo reach:18, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:0, w2:0
+oppo reach:19, h:0, w:16
 ----
-oppo reach:1, h1:0, h2:0, w1:0, w2:0
+oppo reach:20, h:0, w:16
 ----
-oppo reach:2, h1:0, h2:0, w1:0, w2:0
+oppo reach:21, h:0, w:16
 ----
-oppo reach:3, h1:0, h2:0, w1:0, w2:0
+oppo reach:22, h:0, w:16
 ----
-oppo reach:4, h1:0, h2:0, w1:0, w2:0
+oppo reach:23, h:0, w:16
 ----
-oppo reach:5, h1:0, h2:0, w1:0, w2:0
+oppo reach:24, h:0, w:16
 ----
-oppo reach:6, h1:0, h2:0, w1:0, w2:0
+oppo reach:25, h:0, w:16
 ----
-oppo reach:7, h1:0, h2:0, w1:0, w2:0
+oppo reach:26, h:0, w:16
 ----
-oppo reach:8, h1:0, h2:0, w1:0, w2:0
+oppo reach:27, h:0, w:16
 ----
-oppo reach:9, h1:0, h2:0, w1:0, w2:0
+oppo reach:28, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:0, w2:0
+oppo reach:29, h:0, w:16
 ----
-oppo reach:1, h1:0, h2:0, w1:0, w2:0
+oppo reach:30, h:0, w:16
 ----
-oppo reach:2, h1:0, h2:0, w1:0, w2:0
+oppo reach:31, h:0, w:16
 ----
-oppo reach:3, h1:0, h2:0, w1:0, w2:0
+oppo reach:31, h:0, w:16
 ----
-oppo reach:4, h1:0, h2:0, w1:0, w2:0
+oppo reach:32, h:0, w:16
 ----
-oppo reach:5, h1:0, h2:0, w1:0, w2:0
+oppo reach:33, h:0, w:16
 ----
-oppo reach:6, h1:0, h2:0, w1:0, w2:0
+oppo reach:34, h:0, w:16
 ----
-oppo reach:7, h1:0, h2:0, w1:0, w2:0
+oppo reach:35, h:0, w:16
 ----
-oppo reach:8, h1:0, h2:0, w1:0, w2:0
+oppo reach:36, h:0, w:16
 ----
-oppo reach:9, h1:0, h2:0, w1:0, w2:0
+oppo reach:37, h:0, w:16
 ----
-oppo reach:10, h1:0, h2:0, w1:0, w2:0
+oppo reach:38, h:0, w:16
 ----
-oppo reach:11, h1:0, h2:0, w1:0, w2:0
+oppo reach:39, h:0, w:16
 ----
-oppo reach:12, h1:0, h2:0, w1:0, w2:0
+oppo reach:40, h:0, w:16
 ----
-oppo reach:13, h1:0, h2:0, w1:0, w2:0
+oppo reach:41, h:0, w:16
 ----
-oppo reach:14, h1:0, h2:0, w1:0, w2:0
+oppo reach:42, h:0, w:16
 ----
-oppo reach:0, h1:0, h2:0, w1:0, w2:0
+oppo reach:43, h:0, w:16
 ----
-oppo reach:1, h1:0, h2:0, w1:0, w2:0
+oppo reach:44, h:0, w:16
 ----
-oppo reach:2, h1:0, h2:0, w1:0, w2:0
+oppo reach:45, h:0, w:16
 ----
-oppo reach:3, h1:0, h2:0, w1:0, w2:0
+oppo reach:46, h:0, w:16
 ----
-oppo reach:4, h1:0, h2:0, w1:0, w2:0
+oppo reach:47, h:0, w:16
 ----
-oppo reach:5, h1:0, h2:0, w1:0, w2:0
+oppo reach:48, h:0, w:16
 ----
-oppo reach:6, h1:0, h2:0, w1:0, w2:0
+oppo reach:49, h:0, w:16
 ----
-oppo reach:7, h1:0, h2:0, w1:0, w2:0
+oppo reach:50, h:0, w:16
+----
+oppo reach:51, h:0, w:16
+----
+oppo reach:52, h:0, w:16
+----
+oppo reach:53, h:0, w:16
+----
+oppo reach:54, h:0, w:16
+----
+oppo reach:55, h:0, w:16
+----
+oppo reach:56, h:0, w:16
+----
+oppo reach:57, h:0, w:16
+----
+oppo reach:58, h:0, w:16
+----
+oppo reach:59, h:0, w:16
+----
+oppo reach:60, h:0, w:16
+----
+oppo reach:61, h:0, w:16
+----
+oppo reach:62, h:0, w:16
+----
+oppo reach:63, h:0, w:16
+----
+oppo reach:64, h:0, w:16
+----
+oppo reach:65, h:0, w:16
+----
+oppo reach:66, h:0, w:16
+----
+oppo reach:67, h:0, w:16
+----
+oppo reach:68, h:0, w:16
+----
+oppo reach:69, h:0, w:16
+----
+oppo reach:70, h:0, w:16
+----
+oppo reach:71, h:0, w:16
+----
+oppo reach:72, h:0, w:16
+----
+oppo reach:73, h:0, w:16
+----
+oppo reach:74, h:0, w:16
+----
+oppo reach:75, h:0, w:16
+----
+oppo reach:76, h:0, w:16
+----
+oppo reach:77, h:0, w:16
+----
+oppo reach:78, h:0, w:16
+----
+oppo reach:79, h:0, w:16
+----
+oppo reach:80, h:0, w:16
+----
+oppo reach:81, h:0, w:16
+----
+oppo reach:82, h:0, w:16
+----
+oppo reach:0, h:0, w:16
+----
+oppo reach:0, h:0, w:16
+----
+oppo reach:0, h:0, w:16
+----
+oppo reach:0, h:0, w:16
+----
+oppo reach:0, h:0, w:16
+----
+oppo reach:0, h:0, w:16
+----
+oppo reach:0, h:0, w:16
+----
+oppo reach:1, h:0, w:16
+----
+oppo reach:1, h:0, w:16
+----
+oppo reach:1, h:0, w:16
+----
+oppo reach:2, h:0, w:16
+----
+oppo reach:2, h:0, w:16
+----
+oppo reach:2, h:0, w:16
+----
+oppo reach:2, h:0, w:16
+----
+oppo reach:3, h:0, w:16
+----
+oppo reach:3, h:0, w:16
+----
+oppo reach:3, h:0, w:16
+----
+oppo reach:4, h:0, w:16
+----
+oppo reach:5, h:0, w:16
+----
+oppo reach:6, h:0, w:16
+----
+oppo reach:7, h:0, w:16
+----
+oppo reach:8, h:0, w:16
+----
+oppo reach:9, h:0, w:16
+----
+oppo reach:10, h:0, w:16
+----
+oppo reach:11, h:0, w:16
+----
+oppo reach:12, h:0, w:16
+----
+oppo reach:13, h:0, w:16
+----
+oppo reach:14, h:0, w:16
+----
+oppo reach:15, h:0, w:16
+----
+oppo reach:16, h:0, w:16
+----
+oppo reach:17, h:0, w:16
+----
+oppo reach:18, h:0, w:16
+----
+oppo reach:19, h:0, w:16
+----
+oppo reach:20, h:0, w:16
+----
+oppo reach:21, h:0, w:16
+----
+oppo reach:22, h:0, w:16
+----
+oppo reach:23, h:0, w:16
+----
+oppo reach:24, h:0, w:16
+----
+oppo reach:25, h:0, w:16
+----
+oppo reach:26, h:0, w:16
+----
+oppo reach:27, h:0, w:16
+----
+oppo reach:28, h:0, w:16
+----
+oppo reach:29, h:0, w:16
+----
+oppo reach:30, h:0, w:16
+----
+oppo reach:31, h:0, w:16
+----
+oppo reach:32, h:0, w:16
+----
+oppo reach:33, h:0, w:16
+----
+oppo reach:33, h:0, w:16
+----
+oppo reach:34, h:0, w:16
+----
+oppo reach:35, h:0, w:16
+----
+oppo reach:36, h:0, w:16
+----
+oppo reach:37, h:0, w:16
+----
+oppo reach:38, h:0, w:16
+----
+oppo reach:39, h:0, w:16
+----
+oppo reach:40, h:0, w:16
+----
+oppo reach:41, h:0, w:16
+----
+oppo reach:42, h:0, w:16
+----
+oppo reach:43, h:0, w:16
+----
+oppo reach:44, h:0, w:16
+----
+oppo reach:45, h:0, w:16
+----
+oppo reach:46, h:0, w:16
+----
+oppo reach:47, h:0, w:16
+----
+oppo reach:48, h:0, w:16
+----
+oppo reach:49, h:0, w:16
+----
+oppo reach:50, h:0, w:16
 ----

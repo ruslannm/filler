@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 18:39:43 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 14:57:27 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,23 +67,11 @@ int		ft_get_size_piece(t_map **map)
 void	ft_set_opposite_corner(t_map **map, int height, int width)
 {
 	if (height + 1 < (*map)->map_height / 2)
-	{
 		(*map)->opposite_corner[0] = (*map)->map_height - 1;
-		(*map)->opposite_corner[1] = (*map)->map_height - 1;
-	}
 	else
-	{
 		(*map)->opposite_corner[0] = 0;
-		(*map)->opposite_corner[1] = 0;
-	}
 	if (width + 1 < (*map)->map_width / 2)
-	{
-		(*map)->opposite_corner[2] = (*map)->map_width - 1;
-		(*map)->opposite_corner[3] = (*map)->map_width - 1;
-	}
+		(*map)->opposite_corner[1] = (*map)->map_width - 1;
 	else
-	{
-		(*map)->opposite_corner[2] = 0;
-		(*map)->opposite_corner[3] = 0;
-	}
+		(*map)->opposite_corner[1] = 0;
 }
