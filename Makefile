@@ -6,18 +6,19 @@
 #    By: rgero <rgero@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 15:46:56 by rgero             #+#    #+#              #
-#    Updated: 2020/03/03 15:07:02 by rgero            ###   ########.fr        #
+#    Updated: 2020/03/05 18:01:15 by rgero            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = rgero.filler
 
 CC = gcc
-CFLAGS = -c -Wall -Wextra -Werror -g
+CFLAGS = -c -Wall -Wextra -Werror
 
 SRC_PATH = src
 SRC_NAME = main.c ft_init.c ft_auxiliary.c ft_read.c ft_heat.c\
-			ft_put_piece.c ft_corner.c ft_move_piece.c ft_control.c
+			ft_ini_corner.c ft_get_corner.c ft_set_corner.c\
+			ft_put_piece.c ft_move_piece.c ft_control.c
 
 SRC = $(addprefix $(SRC_PATH)/, $(SRC_NAME))
 

@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 17:29:52 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 18:03:04 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,14 @@ typedef struct
 	int				direction;
 }					t_map;
 
-//t_map				*ft_init(int fd);
-//int					ft_init(t_map **map);
 int					ft_init(t_map **map, int fd);
-//char				*ft_find_line(int fd, char *needle);
 int					ft_read_plateau(t_map **map);
 int					ft_control_plateau(t_map **map);
 int					ft_control_piece(t_map **map);
 int					ft_read_piece(t_map **map);
-//void				ft_get_size(t_map **map, char *str);
 int					ft_get_size_piece(t_map **map);
 void				ft_heat(t_map **map);
-int					ft_put_piece(t_map **map, int h, int w);
+int					ft_put_piece(t_map **map);
 void				ft_del_piece(t_map *map);
 void				ft_del_map(t_map *map, int height);
 void				ft_ini_last_corner(t_map **map);
@@ -79,5 +75,9 @@ int					ft_get_distance_opposite(t_map *map);
 int					ft_get_sum_max(t_map *map);
 void				ft_del_in_map(t_map *map, int height);
 void				ft_get_piece_corner(t_map **map, int h, int w);
+void				ft_get_last_corner(t_map **map);
+void				ft_get_opposite_corner(t_map **map);
+void				ft_get_shape_corner(t_map **map);
+void				ft_set_piece(t_map **map, int *control, int h, int w);
 
 #endif

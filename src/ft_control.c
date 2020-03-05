@@ -6,13 +6,13 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:50:08 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 15:23:27 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 17:55:20 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int	ft_fill_line_map(t_map *map, int i, char *str)
+int		ft_fill_line_map(t_map *map, int i, char *str)
 {
 	int	ret;
 	int	k;
@@ -40,7 +40,7 @@ int	ft_fill_line_map(t_map *map, int i, char *str)
 	return (ret);
 }
 
-int	ft_check_line_piece(t_map *map, char *str)
+int		ft_check_line_piece(t_map *map, char *str)
 {
 	int	ret;
 	int	k;
@@ -59,8 +59,7 @@ int	ft_check_line_piece(t_map *map, char *str)
 	return (ret);
 }
 
-
-int	ft_control_plateau(t_map **map)
+int		ft_control_plateau(t_map **map)
 {
 	int i;
 	int ret;
@@ -77,10 +76,9 @@ int	ft_control_plateau(t_map **map)
 
 /*
 ** quantity asterisk in piece >= 1
-**
 */
 
-int	ft_control_piece(t_map **map)
+int		ft_control_piece(t_map **map)
 {
 	int i;
 	int ret;
@@ -100,4 +98,14 @@ int	ft_control_piece(t_map **map)
 	else
 		ret = -1;
 	return (ret);
+}
+
+void	ft_set_piece(t_map **map, int *control, int h, int w)
+{
+	(*map)->piece_set = 1;
+	(*map)->piece_min_summa = control[0];
+	(*map)->piece_min_distance = control[1];
+	(*map)->piece_min_distance_opposite = control[2];
+	(*map)->piece_h = h;
+	(*map)->piece_w = w;
 }

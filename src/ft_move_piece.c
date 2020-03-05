@@ -6,36 +6,12 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 17:07:19 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 17:39:05 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-/*
-int		ft_get_sum_max(t_map *map)
-{
-	int ret;
-	int	i;
-	int	j;
-
-	ret = 0;
-	i = 0;
-	while (i < map->piece_height)
-	{
-		j = 0;
-		while (j < map->piece_width)
-		{
-			if ('*' == map->piece[i][j])
-				ret++;
-			j++;
-		}
-		i++;
-	}
-	ret *= ft_max(map->map_height, map->map_width);
-	return (ret);
-}
-*/
 int		ft_get_sum(t_map *map, int h, int w)
 {
 	int ret;
