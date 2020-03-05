@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:50:08 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/04 15:15:30 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 15:23:27 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	ft_fill_line_map(t_map *map, int i, char *str)
 				map->map[i][k - 4] = ENEMY;
 			else if (str[k] == map->enemy + 32)
 				map->map[i][k - 4] = LAST;
-			else if (str[k] == map->player)
+			else if (str[k] == map->player || str[k] == map->player + 32)
 				map->map[i][k - 4] = PLAYER;
 			else
 				ret = -1;

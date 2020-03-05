@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:12:17 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 15:17:02 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 15:21:33 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,9 @@ void	ft_print_map(t_map *map)
 
 	h = 0;
 	fd_log =  open("filler.log", O_APPEND | O_CREAT | O_WRONLY);
-	ft_printf_fd(fd_log, "oppo reach:%d, h:%d, w:%d\n----\n",\
-	map->opposite_reach, map->opposite_corner[0], map->opposite_corner[1]);
-	
-	close(fd_log);
+//	ft_printf_fd(fd_log, "oppo reach:%d, h:%d, w:%d\n----\n",\
+//	map->opposite_reach, map->opposite_corner[0], map->opposite_corner[1]);
+//	close(fd_log);
 	while (h < map->map_height)
 	{
 		w = 0;
@@ -79,7 +78,7 @@ int		main(void)
 	int		ret;
 	int fd;
 
-	fd = 0; //open("filler2.txt", O_RDONLY);
+	fd = open("filler2.txt", O_RDONLY);
 
 	ret = ft_init(&map, fd);
 	if (0 == ret)
@@ -90,9 +89,9 @@ int		main(void)
 				break;
 			if (-1 == ft_read_piece(&map))
 				break ;
-//ft_print_map(map);
+ft_print_map(map);
 			ft_heat(&map);
-//ft_print_map(map);
+ft_print_map(map);
 			if (-1 == ft_put_piece(&map, 0, 0))
 				break ;
 //ft_print_map(map);
