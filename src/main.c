@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:12:17 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 15:21:33 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 15:55:36 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int		main(void)
 	int		ret;
 	int fd;
 
-	fd = open("filler2.txt", O_RDONLY);
+	fd = 0; //open("filler2.txt", O_RDONLY);
 
 	ret = ft_init(&map, fd);
 	if (0 == ret)
@@ -89,9 +89,9 @@ int		main(void)
 				break;
 			if (-1 == ft_read_piece(&map))
 				break ;
-ft_print_map(map);
+//ft_print_map(map);
 			ft_heat(&map);
-ft_print_map(map);
+//ft_print_map(map);
 			if (-1 == ft_put_piece(&map, 0, 0))
 				break ;
 //ft_print_map(map);

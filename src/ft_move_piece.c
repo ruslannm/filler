@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 15:13:46 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 16:23:10 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,17 @@ int		ft_get_distance(t_map **map, int h, int w)
 			ft_abs((*map)->last_corner[2] - (*map)->piece_corner[2]) +\
 			ft_abs((*map)->last_corner[3] - (*map)->piece_corner[3]);
 	return (ret);
+}
+
+int		ft_get_distance_opposite2(int h1, int h2)
+{
+	int	ret;
+
+	ret = 0;
+	if (x == y)
+		ret = ft_abs((*map)->opposite_corner[0] - (*map)->piece_corner[0]) +\
+			ft_abs((*map)->opposite_corner[1] - (*map)->piece_corner[2]);
+
 }
 
 int		ft_get_distance_opposite(t_map **map)

@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 15:11:27 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 16:05:04 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define ENEMY		0
 # define LAST		-1
 # define DOT		-3
+# define SHOTS		5
 
 typedef struct
 {
