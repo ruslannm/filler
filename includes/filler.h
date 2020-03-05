@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 16:05:04 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 17:08:07 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int					ft_abs(int i);
 int					ft_max(int a, int b);
 int					ft_get_sum(t_map *map, int h, int w);
 int					ft_get_distance(t_map **map, int h, int w);
-int					ft_get_distance_opposite(t_map **map);
+int					ft_get_distance_opposite(t_map *map);
 int					ft_get_sum_max(t_map *map);
 void				ft_del_in_map(t_map *map, int height);
 void				ft_get_piece_corner(t_map **map, int h, int w);

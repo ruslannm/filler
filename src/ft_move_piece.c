@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 16:23:10 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 17:07:19 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,41 +93,35 @@ int		ft_get_distance(t_map **map, int h, int w)
 	return (ret);
 }
 
-int		ft_get_distance_opposite2(int h1, int h2)
+int		ft_get_distance_opposite2(int h1, int h2, int w1, int w2)
 {
 	int	ret;
 
-	ret = 0;
-	if (x == y)
-		ret = ft_abs((*map)->opposite_corner[0] - (*map)->piece_corner[0]) +\
-			ft_abs((*map)->opposite_corner[1] - (*map)->piece_corner[2]);
-
+	if (h1 == h2)
+		ret = 0;
+	else if (w1 == w2)
+		ret = 0;
+	else
+		ret = ft_abs(h1 - h2) + ft_abs(w1 - w2);
+	return (ret);
 }
 
-int		ft_get_distance_opposite(t_map **map)
+int		ft_get_distance_opposite(t_map *map)
 {
 	int ret;
 
 	ret = 0;
-	if (0 == (*map)->opposite_corner[0] && 0 == (*map)->opposite_corner[1])
-	{
-		ret = ft_abs((*map)->opposite_corner[0] - (*map)->piece_corner[0]) +\
-			ft_abs((*map)->opposite_corner[1] - (*map)->piece_corner[2]);
-	}
-	else if (0 == (*map)->opposite_corner[0] && 0 != (*map)->opposite_corner[1])
-	{
-		ret = ft_abs((*map)->opposite_corner[0] - (*map)->piece_corner[0]) +\
-			ft_abs((*map)->opposite_corner[1] - (*map)->piece_corner[3]);
-	}
-	else if (0 != (*map)->opposite_corner[0] && 0 == (*map)->opposite_corner[1])
-	{
-		ret = ft_abs((*map)->opposite_corner[0] - (*map)->piece_corner[1]) +\
-			ft_abs((*map)->opposite_corner[1] - (*map)->piece_corner[2]);
-	}
-	else if (0 != (*map)->opposite_corner[0] && 0 != (*map)->opposite_corner[1])
-	{
-		ret = ft_abs((*map)->opposite_corner[0] - (*map)->piece_corner[1]) +\
-			ft_abs((*map)->opposite_corner[1] - (*map)->piece_corner[3]);
-	}
+	if (0 == map->opposite_corner[0] && 0 == map->opposite_corner[1])
+		ret = ft_get_distance_opposite2(map->opposite_corner[0],\
+		map->piece_corner[0], map->opposite_corner[1], map->piece_corner[2]);
+	else if (0 == map->opposite_corner[0] && 0 != map->opposite_corner[1])
+		ret = ft_get_distance_opposite2(map->opposite_corner[0],\
+		map->piece_corner[0], map->opposite_corner[1], map->piece_corner[3]);
+	else if (0 != map->opposite_corner[0] && 0 == map->opposite_corner[1])
+		ret = ft_get_distance_opposite2(map->opposite_corner[0],\
+		map->piece_corner[1], map->opposite_corner[1], map->piece_corner[2]);
+	else if (0 != map->opposite_corner[0] && 0 != map->opposite_corner[1])
+		ret = ft_get_distance_opposite2(map->opposite_corner[0],\
+		map->piece_corner[1], map->opposite_corner[1], map->piece_corner[3]);
 	return (ret);
 }

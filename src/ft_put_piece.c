@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 16:18:31 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 17:08:49 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_control(t_map **map, int h, int w)
 
 	control[0] = ft_get_sum(*map, h, w);
 	control[1] = ft_get_distance(map, h, w);
-	control[2] = ft_get_distance_opposite(map);
+	control[2] = ft_get_distance_opposite(*map);
 
 	if (SHOTS > (*map)->opposite_reach)
 	{
@@ -125,7 +125,7 @@ int		ft_put_piece(t_map **map, int h, int w)
 	ft_printf("%d %d\n", (*map)->piece_h, (*map)->piece_w);
 	ft_ini_piece_corner(map);
 	ft_get_piece_corner(map, (*map)->piece_h, (*map)->piece_w);
-	h = ft_get_distance_opposite(map);
+	h = ft_get_distance_opposite(*map);
 	if (0 == h)
 		(*map)->opposite_reach = SHOTS + 1;
 	else if (h < (*map)->piece_last_distance_opposite)
