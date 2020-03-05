@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 14:56:03 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 18:43:32 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	ft_get_player(t_map **map)
 	char	*line;
 	int		ret;
 
-	get_next_line((*map)->fd, &line);
+	line = NULL;
+	get_next_line(0, &line);
+	if (!line)
+		return (-1);
 	if (ft_strncmp("$$$ exec p", line, 10))
 		ret = -1;
 	else
@@ -43,7 +46,7 @@ int	ft_get_size_map(t_map **map)
 	char	*width;
 
 	ret = 0;
-	get_next_line((*map)->fd, &line);
+	get_next_line(0, &line);
 	if (ft_strncmp("Plateau ", line, 8))
 		ret = -1;
 	else if (ft_strlen(line) < 12)
@@ -84,14 +87,13 @@ int	ft_get_map(t_map **map)
 	return (0);
 }
 
-int	ft_init(t_map **map, int fd)
+int	ft_init(t_map **map)
 {
 	int	ret;
 
 	ret = 0;
 	if (!(*map = (t_map*)malloc(sizeof(t_map))))
 		return (-1);
-	(*map)->fd = fd;
 	if (-1 == ft_get_player(map))
 		ret = -1;
 	else if (-1 == ft_get_size_map(map))

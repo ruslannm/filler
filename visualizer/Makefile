@@ -6,7 +6,7 @@
 #    By: rgero <rgero@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 15:46:56 by rgero             #+#    #+#              #
-#    Updated: 2020/02/28 18:47:57 by rgero            ###   ########.fr        #
+#    Updated: 2020/03/05 18:29:16 by rgero            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -c -Wall -Wextra -Werror -g
 FW = -framework OpenGL -framework AppKit
 
 SRC_PATH = src
-SRC_NAME = main.c ft_init.c ft_find_line.c
+SRC_NAME = v_main.c ft_v_init.c ft_find_line.c
 
 SRC = $(addprefix $(SRC_PATH)/, $(SRC_NAME))
 
@@ -31,7 +31,7 @@ INCLUDES = $(addprefix -I, $(INCLUDES_PATH))
 LIB_PATH = ../libft
 LIB_NAME = libft.a
 
-LIBMLX_PATH = minilibx_macos/
+LIBMLX_PATH = minilibx_macos
 LIBMLX_NAME = libmlx.a
 
 .PHONY: all clean fclean re libft libmlx

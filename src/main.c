@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/22 16:12:17 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 17:43:55 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 18:38:18 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,8 @@ int		main(void)
 {
 	t_map	*map;
 	int		ret;
-	int		fd;
 
-	fd = 0;
-	ret = ft_init(&map, fd);
+	ret = ft_init(&map);
 	if (0 == ret)
 	{
 		while (1)

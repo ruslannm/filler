@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 18:03:04 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 18:38:31 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct
 	int				direction;
 }					t_map;
 
-int					ft_init(t_map **map, int fd);
+int					ft_init(t_map **map);
 int					ft_read_plateau(t_map **map);
 int					ft_control_plateau(t_map **map);
 int					ft_control_piece(t_map **map);

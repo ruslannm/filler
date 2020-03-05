@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_v_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 19:41:24 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 18:35:58 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ void	ft_get_player(t_map **map)
 
 	line = ft_find_line1((*map)->fd, "exec p1");
 	//line = ft_strdup("exec p1 / /ff/ffffffffffffff");
+	//if (!line)
+	//	return;
+	
 	if ((*map)->fd)
 		name = ft_strrchr(line, '/');
 	else
