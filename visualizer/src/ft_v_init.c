@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 18:35:58 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/05 18:48:43 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_get_player(t_map **map)
 		name = ft_strrchr(line, '/');
 	else
 		name = ft_strrchr(line, '/');
+	ft_printf("%s\n", name);
 //	(*map)->p1_name = ft_strdup(name + 1);
 //	(*map)->p1_name[ft_strlen((*map)->p1_name) - 8] = '\0';
 //	ft_strdel(&line);
