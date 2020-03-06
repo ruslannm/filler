@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 17:01:22 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 18:45:49 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_find_line(int fd, char *needle)
 	{
 		if (!ret)
 			return (ret);
+		if (ft_strstr(ret, "== O fin:"))
+			break ;
 		if (ft_strstr(ret, needle))
 			break ;
 		ft_strdel(&ret);

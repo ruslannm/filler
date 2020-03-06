@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 18:10:58 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 18:57:17 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ typedef struct
 	int				frame_ratio;
 	char			*p1_name;
 	char			*p2_name;
+	char			*p1_result;
+	char			*p2_result;
 	int				p1_point;
 	int				p2_point;
 
@@ -72,6 +74,6 @@ void				ft_put_image(t_map **map);
 void	ft_fill_bg(t_map **map);
 void	ft_fill_bit(t_map **map, int y, int x, int color);
 void	ft_fill_bit_menu(t_map **map, int y, int x, int color);
-void	ft_read_plateau(t_map **map);
+int	ft_read_plateau(t_map **map);
 
 #endif

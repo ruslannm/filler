@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 15:15:31 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 17:36:31 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 18:37:15 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_put_windows(t_map *map)
 	map->img_ptr = mlx_new_image(mlx, WIDTH, HEIGHT);
 	map->data = mlx_get_data_addr(map->img_ptr, &(map->bpp),
 		&(map->sl), &(map->endian));
-	ft_printf("ratio:%d\n", map->frame_ratio);
 	ft_put_image(&map);
 	mlx_key_hook(win, ft_key, map);
 	mlx_loop(mlx);
