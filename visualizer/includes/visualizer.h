@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 17:18:24 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 18:10:58 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@
 # define WIDTH		1100
 # define FR_HEIGHT	1000
 # define FR_WIDTH	1000
-
+# define MENU_RATIO	20
 # define BGCOLOR	0x000000
 # define FRCOLOR	0x1A001A
 # define P1COLOR	0xFF3A19
 # define P2COLOR	0x007F40
-
 
 typedef	struct		s_in_tab
 {
@@ -72,5 +71,7 @@ char				*ft_find_line(int fd, char *needle);
 void				ft_put_image(t_map **map);
 void	ft_fill_bg(t_map **map);
 void	ft_fill_bit(t_map **map, int y, int x, int color);
+void	ft_fill_bit_menu(t_map **map, int y, int x, int color);
+void	ft_read_plateau(t_map **map);
 
 #endif

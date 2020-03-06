@@ -6,18 +6,18 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 12:26:07 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/21 15:07:01 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 17:44:17 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "visualizer.h"
 
 float	ft_abs(float x)
 {
 	return ((x < 0 ? -x : x));
 }
 
-float	ft_max(float x, float y)
+float	ft_max_f(float x, float y)
 {
 	float	x_abs;
 	float	y_abs;
