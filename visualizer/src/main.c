@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   v_main.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 15:15:31 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 18:46:54 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 15:09:58 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	ft_put_windows(t_map *data)
 //	void	*win;
 	
 	data->mlx_ptr = mlx_init();
-	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "filler:");
-//	data->img_ptr = mlx_new_image(data->mlx_ptr, 1000, 1000);
+	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "filler");
+//	data->img_ptr = mlx_new_image(data->mlx_ptr, WIDTH, HEIGHT);
 /*	data->data = mlx_get_data_addr(data->img_ptr, &(data->bpp),
 		&(data->sl), &(data->endian));
 */
@@ -42,18 +42,20 @@ void	ft_put_windows(t_map *data)
 		mlx_string_put(mlx, win, 115, 20, 0xFFFFFF, "Menu");
 	}
 */
-	//mlx_loop(data->mlx_ptr);
+	mlx_loop(data->mlx_ptr);
 }
 
 int		main(void)
 {
-	int		fd;
+	int		ret;
 	t_map	*map;
 	
-	fd = open("result1.txt", O_RDONLY); // 0;
-	if (!(map = ft_init(fd)))
+	ret = ft_init(&map);
+	if (0 == ret)
+	{
+		ft_put_windows(map);	
 		return (0);
-//	ft_put_windows(map);
+	}
 //	while (1)
 //	{
 	//	ft_read_plateau(&map);

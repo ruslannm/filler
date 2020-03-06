@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/28 19:40:37 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 15:09:24 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef	struct		s_tab
 
 typedef struct
 {
-	int				fd;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
@@ -66,8 +65,8 @@ typedef struct
 
 }					t_map;
 
-t_map	*ft_init(int fd);
+int			ft_init(t_map **map);
 int		ft_max(int a, int b);
-char	*ft_find_line1(int fd, char *needle);
+char	*ft_find_line(int fd, char *needle);
 
 #endif

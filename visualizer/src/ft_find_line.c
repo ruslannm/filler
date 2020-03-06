@@ -6,13 +6,13 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 18:34:17 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 14:34:20 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "visualizer.h"
 
-char	*ft_find_line1(int fd, char *needle)
+char	*ft_find_line(int fd, char *needle)
 {
 	char	*ret;
 
@@ -21,7 +21,6 @@ char	*ft_find_line1(int fd, char *needle)
 	{
 		if (!ret)
 			return (ret);
-		//ft_putstr(ret);
 		if (ft_strstr(ret, needle))
 			break ;
 		ft_strdel(&ret);
