@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 15:15:31 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 15:59:03 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 17:19:36 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_put_windows(t_map *map)
 	win = map->win_ptr;
 
 	map->img_ptr = mlx_new_image(mlx, WIDTH, HEIGHT);
+	ft_fill_bit(&map, 500, 500, P1COLOR);
 	map->data = mlx_get_data_addr(map->img_ptr, &(map->bpp),
 		&(map->sl), &(map->endian));
 	ft_put_image(map);

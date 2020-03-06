@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 15:55:56 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 17:18:24 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ typedef struct
 	int				frame_width;
 	int				frame_x;
 	int				frame_y;
+	int				frame_ratio;
 	char			*p1_name;
 	char			*p2_name;
 	int				p1_point;
@@ -66,8 +67,10 @@ typedef struct
 
 int					ft_init(t_map **map);
 int					ft_max(int a, int b);
+int					ft_min(int a, int b);
 char				*ft_find_line(int fd, char *needle);
-void				ft_put_image(t_map *map);
-void	ft_fill_bg(t_map *map);
+void				ft_put_image(t_map **map);
+void	ft_fill_bg(t_map **map);
+void	ft_fill_bit(t_map **map, int y, int x, int color);
 
 #endif

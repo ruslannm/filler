@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 14:34:20 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 17:01:22 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,9 @@ char	*ft_find_line(int fd, char *needle)
 int		ft_max(int a, int b)
 {
 	return (a > b ? a : b);
+}
+
+int		ft_min(int a, int b)
+{
+	return (a < b ? a : b);
 }

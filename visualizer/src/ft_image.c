@@ -6,24 +6,24 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 17:10:56 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 16:01:08 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 17:17:59 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "visualizer.h"
 
-void	ft_put_image(t_map *map)
+void	ft_put_image(t_map **map)
 {
 	void	*mlx;
 	void	*win;
 
 	ft_fill_bg(map);
-	mlx = map->mlx_ptr;
-	win = map->win_ptr;
-	mlx_put_image_to_window(map->mlx_ptr, map->win_ptr, map->img_ptr, 0, 0);
+	mlx = (*map)->mlx_ptr;
+	win = (*map)->win_ptr;
+	mlx_put_image_to_window(mlx, win, (*map)->img_ptr, 0, 0);
 	mlx_string_put(mlx, win, 10, 20, 0xFFFFFF, "Exit: ESCAPE");
-	mlx_string_put(mlx, win, 200, 20, 0xFFFFFF, map->p1_name);
-	mlx_string_put(mlx, win, 500, 20, 0xFFFFFF, map->p2_name);
+	mlx_string_put(mlx, win, 200, 20, 0xFFFFFF, (*map)->p1_name);
+	mlx_string_put(mlx, win, 500, 20, 0xFFFFFF, (*map)->p2_name);
 }
 
 /*

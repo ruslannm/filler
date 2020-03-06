@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 15:06:54 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 17:04:59 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,16 +94,19 @@ int	ft_get_size_map(t_map **map)
 int		ft_get_size_frame(t_map **map)
 {
 	int	ret;
-	int	max;
+	int	height_ratio;
+	int	width_ratio;
 
 	ret = ft_get_size_map(map);
 	if (-1 == ret)
 		return (ret);
-	max = ft_max((*map)->map_height, (*map)->map_width);
-	(*map)->frame_height = FR_HEIGHT * (*map)->map_height / max;
-	(*map)->frame_width = FR_WIDTH * (*map)->map_width / max;
+	height_ratio = FR_HEIGHT / (*map)->map_height;
+	width_ratio = FR_WIDTH / (*map)->map_width;
+	(*map)->frame_ratio = ft_min(height_ratio, width_ratio);
+	(*map)->frame_height = (*map)->map_height * (*map)->frame_ratio;
+	(*map)->frame_width = (*map)->map_width * (*map)->frame_ratio;
 	(*map)->frame_y = HEIGHT - (*map)->frame_height - 50;
-	(*map)->frame_x = (WIDTH	- (*map)->frame_width)/ 2;
+	(*map)->frame_x = (WIDTH - (*map)->frame_width)/ 2;
 	return (ret);
 }
 
