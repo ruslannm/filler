@@ -6,75 +6,56 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 12:26:07 by rgero             #+#    #+#             */
-/*   Updated: 2020/02/21 14:57:08 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 16:11:21 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "visualizer.h"
 
-void	ft_put_pixel(t_fdf *data, int x, int y, int color)
+void	ft_put_pixel(t_map *map, int x, int y, int color)
 {
-	if (x >= MENU_WIDTH * data->menu && x < WIDTH && y >= 0 && y < HEIGHT)
-		*(int*)(data->data + (x + y * WIDTH) * data->bpp / 8) = color;
+	*(int*)(map->data + (x + y * WIDTH) * map->bpp / 8) = color;
 }
 
-void	ft_fill_bg(t_fdf *data)
+void	ft_fill_bg(t_map *map)
 {
 	int	i;
 	int	*img;
+	int	div;
+	int	rem;
 
-	ft_bzero(data->data, HEIGHT * WIDTH * (data->bpp / 8));
-	img = (int*)(data->data);
+	ft_bzero(map->data, HEIGHT * WIDTH * (map->bpp / 8));
+	img = (int*)(map->data);
 	i = -1;
 	while (++i < HEIGHT * WIDTH)
-		img[i] = (i % WIDTH < data->menu * MENU_WIDTH) ?
-			MENUCOLOR : BGCOLOR;
-}
-
-void	ft_rotate(t_fdf *data)
-{
-	int		i;
-	int		j;
-
-	ft_fill_bg(data);
-	ft_get_tab(data, 1);
-	i = 0;
-	while (i < data->height)
 	{
-		j = 0;
-		while (j < data->width)
-		{
-			if (data->x_angle)
-				ft_rotate_x(data, i, j);
-			if (data->y_angle)
-				ft_rotate_y(data, i, j);
-			if (data->z_angle)
-				ft_rotate_z(data, i, j);
-			j++;
-		}
-		i++;
+		div = i / WIDTH;
+		rem = i % WIDTH;
+		if (div >= map->frame_y && div < map->frame_y + map->frame_height &&\
+			rem >= map->frame_x && rem < map->frame_x + map->frame_width)
+			img[i] = FRCOLOR;
+		else
+			img[i] = BGCOLOR;
 	}
 }
 
-void	ft_projection(t_fdf *data, float *h, float *w, float z)
+void	ft_fill_bit(t_map *map, int y, int x, int ratio, int color)
 {
-	float a[3];
-	float c[3];
+	int	i;
+	int	*img;
+	int	div;
+	int	rem;
 
-	a[0] = *h;
-	a[1] = *w;
-	a[2] = z;
-	if (data->projection)
+	img = (int*)(map->data);
+	i = -1;
+	while (++i < HEIGHT * WIDTH)
 	{
-		c[0] = (a[0] * sqrt(3) - a[2] * sqrt(3)) / sqrt(6)
-				+ data->height_shift;
-		c[1] = (a[0] + 2 * a[1] + a[2]) / sqrt(6) + data->width_shift;
+		div = i / WIDTH;
+		rem = i % WIDTH;
+		if (div >= map->frame_y && div < map->frame_y + map->frame_height &&\
+			rem >= map->frame_x && rem < map->frame_x + map->frame_width)
+			img[i] = FRCOLOR;
+		else
+			img[i] = BGCOLOR;
 	}
-	else
-	{
-		c[0] = a[0] + data->height_shift;
-		c[1] = a[1] + data->width_shift;
-	}
-	*h = c[0];
-	*w = c[1];
 }

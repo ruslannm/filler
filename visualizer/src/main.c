@@ -6,11 +6,21 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 15:15:31 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 15:09:58 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 15:59:03 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "visualizer.h"
+
+int	ft_key(int key, t_map *map)
+{
+	if (53 == key)
+	{
+		mlx_destroy_window(map->mlx_ptr, map->win_ptr);
+		exit(0);
+	}
+	return (0);
+}
 
 void	ft_del_map(t_map *map)
 {
@@ -24,25 +34,23 @@ void	ft_read(t_map *data)
 	ft_putstr(data->p1_name);
 }
 
-void	ft_put_windows(t_map *data)
+void	ft_put_windows(t_map *map)
 {
-//	void	*mlx;
-//	void	*win;
+	void	*mlx;
+	void	*win;
 	
-	data->mlx_ptr = mlx_init();
-	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGHT, "filler");
-//	data->img_ptr = mlx_new_image(data->mlx_ptr, WIDTH, HEIGHT);
-/*	data->data = mlx_get_data_addr(data->img_ptr, &(data->bpp),
-		&(data->sl), &(data->endian));
-*/
-/*	while (1)
-	{
-		mlx = data->mlx_ptr;
-		win = data->win_ptr;
-		mlx_string_put(mlx, win, 115, 20, 0xFFFFFF, "Menu");
-	}
-*/
-	mlx_loop(data->mlx_ptr);
+
+	map->mlx_ptr = mlx_init();
+	map->win_ptr = mlx_new_window(map->mlx_ptr, WIDTH, HEIGHT, "filler");
+	mlx = map->mlx_ptr;
+	win = map->win_ptr;
+
+	map->img_ptr = mlx_new_image(mlx, WIDTH, HEIGHT);
+	map->data = mlx_get_data_addr(map->img_ptr, &(map->bpp),
+		&(map->sl), &(map->endian));
+	ft_put_image(map);
+	mlx_key_hook(win, ft_key, map);
+	mlx_loop(mlx);
 }
 
 int		main(void)

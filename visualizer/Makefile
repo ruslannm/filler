@@ -6,7 +6,7 @@
 #    By: rgero <rgero@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 15:46:56 by rgero             #+#    #+#              #
-#    Updated: 2020/03/06 14:32:53 by rgero            ###   ########.fr        #
+#    Updated: 2020/03/06 15:57:16 by rgero            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CFLAGS = -c -Wall -Wextra -Werror -g
 FW = -framework OpenGL -framework AppKit
 
 SRC_PATH = src
-SRC_NAME = main.c ft_init.c ft_find_line.c
+SRC_NAME = main.c ft_init.c ft_find_line.c ft_image.c ft_projection.c
 
 SRC = $(addprefix $(SRC_PATH)/, $(SRC_NAME))
 

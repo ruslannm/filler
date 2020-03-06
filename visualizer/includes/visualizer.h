@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 15:09:24 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 15:55:56 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@
 # define FR_HEIGHT	1000
 # define FR_WIDTH	1000
 
-# define MENU_WIDTH	260
 # define BGCOLOR	0x000000
-# define MENUCOLOR	0x1A001A
+# define FRCOLOR	0x1A001A
 # define P1COLOR	0xFF3A19
 # define P2COLOR	0x007F40
 
@@ -65,8 +64,10 @@ typedef struct
 
 }					t_map;
 
-int			ft_init(t_map **map);
-int		ft_max(int a, int b);
-char	*ft_find_line(int fd, char *needle);
+int					ft_init(t_map **map);
+int					ft_max(int a, int b);
+char				*ft_find_line(int fd, char *needle);
+void				ft_put_image(t_map *map);
+void	ft_fill_bg(t_map *map);
 
 #endif
