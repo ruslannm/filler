@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 18:57:17 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/06 19:28:40 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@
 # define FR_WIDTH	1000
 # define MENU_RATIO	20
 # define BGCOLOR	0x000000
-# define FRCOLOR	0x1A001A
+# define FRCOLOR	0xFFFFFF
+//# define FRCOLOR	0x1A001A
 # define P1COLOR	0xFF3A19
 # define P2COLOR	0x007F40
 
