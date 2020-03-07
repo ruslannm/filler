@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/07 15:30:51 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 15:54:41 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ int		ft_get_size_frame(t_map **map)
 	(*map)->frame_width = (*map)->map_width * (*map)->frame_ratio;
 	(*map)->frame_y = HEIGHT - (*map)->frame_height - 50;
 	(*map)->frame_x = (WIDTH - (*map)->frame_width) / 2;
+	(*map)->finish = 0;
 	return (ret);
 }
 
