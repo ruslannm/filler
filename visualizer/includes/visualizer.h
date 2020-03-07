@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 19:28:40 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 13:05:20 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,8 @@
 # define MENU_RATIO	20
 # define BGCOLOR	0x000000
 # define FRCOLOR	0xFFFFFF
-//# define FRCOLOR	0x1A001A
 # define P1COLOR	0xFF3A19
 # define P2COLOR	0x007F40
-
-typedef	struct		s_in_tab
-{
-	int				pixel[2];
-}					t_in_tab;
-
-typedef	struct		s_tab
-{
-	float			pixel[4];
-}					t_tab;
 
 typedef struct
 {
@@ -58,23 +47,18 @@ typedef struct
 	int				frame_x;
 	int				frame_y;
 	int				frame_ratio;
-	char			*p1_name;
-	char			*p2_name;
-	char			*p1_result;
-	char			*p2_result;
-	int				p1_point;
-	int				p2_point;
-
+	char			p1_name[50];
+	char			p2_name[50];
 }					t_map;
 
 int					ft_init(t_map **map);
 int					ft_max(int a, int b);
 int					ft_min(int a, int b);
-char				*ft_find_line(int fd, char *needle);
+int					ft_find_line(char **line, char *needle);
 void				ft_put_image(t_map **map);
-void	ft_fill_bg(t_map **map);
-void	ft_fill_bit(t_map **map, int y, int x, int color);
-void	ft_fill_bit_menu(t_map **map, int y, int x, int color);
-int	ft_read_plateau(t_map **map);
+void				ft_fill_bg(t_map **map);
+void				ft_fill_bit(t_map **map, int y, int x, int color);
+void				ft_fill_bit_menu(t_map **map, int y, int x, int color);
+int					ft_read_plateau(t_map **map);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 17:04:59 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 13:16:48 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,21 @@ int	ft_get_player_2(t_map **map)
 	int		ret;
 
 	ret = 0;
-	line = ft_find_line(0, "$$$ exec p2");
-	if (!line)
+	ret = ft_find_line(&line, "$$$ exec p2");
+	if (0 >= ret)
 		ret = -1;
 	else
 	{
 		name = ft_strrchr(line, '/');
-		if (!((*map)->p2_name = ft_strdup(name + 1)))
-			ret = -1;
+		if (name)
+		{
+			(*map)->p2_name[0] = '\0';
+			ft_strcpy((*map)->p2_name, name + 1);
+			if (ft_strlen((*map)->p2_name) > 8)
+				(*map)->p2_name[ft_strlen((*map)->p2_name) - 8] = '\0';
+		}
 		else
-			(*map)->p2_name[ft_strlen((*map)->p2_name) - 8] = '\0';
+			ret = -1;
 	}
 	ft_strdel(&line);
 	return (ret);
@@ -41,24 +46,25 @@ int	ft_get_player(t_map **map)
 	int		ret;
 
 	ret = 0;
-	line = ft_find_line(0, "$$$ exec p1");
-	if (!line)
+	ret = ft_find_line(&line, "$$$ exec p1");
+	if (0 >= ret)
 		ret = -1;
 	else
 	{
 		name = ft_strrchr(line, '/');
-		if (!((*map)->p1_name = ft_strdup(name + 1)))
-			ret = -1;
+		if (name)
+		{
+			(*map)->p1_name[0] = '\0';
+			ft_strcpy((*map)->p1_name, name + 1);
+			if (ft_strlen((*map)->p1_name) > 8)
+				(*map)->p1_name[ft_strlen((*map)->p1_name) - 8] = '\0';
+		}
 		else
-			(*map)->p1_name[ft_strlen((*map)->p1_name) - 8] = '\0';
+			ret = -1;
 	}
 	ft_strdel(&line);
 	if (0 == ret)
-	{
 		ret = ft_get_player_2(map);
-		if (-1 == ret)
-			free((*map)->p1_name);
-	}
 	return (ret);
 }
 
@@ -106,7 +112,7 @@ int		ft_get_size_frame(t_map **map)
 	(*map)->frame_height = (*map)->map_height * (*map)->frame_ratio;
 	(*map)->frame_width = (*map)->map_width * (*map)->frame_ratio;
 	(*map)->frame_y = HEIGHT - (*map)->frame_height - 50;
-	(*map)->frame_x = (WIDTH - (*map)->frame_width)/ 2;
+	(*map)->frame_x = (WIDTH - (*map)->frame_width) / 2;
 	return (ret);
 }
 
@@ -128,18 +134,3 @@ int	ft_init(t_map **map)
 	}
 	return (ret);
 }
-
-/*
-t_map	*ft_init(int fd)
-{
-	t_map	*map;
-
-	if (!(map = (t_map*)malloc(sizeof(t_map))))
-		return (NULL);
-	map->fd = fd;
-	ft_get_player(&map);
-	exit(0);
-//	ft_get_size(&map);
-	return (map);
-}
-*/

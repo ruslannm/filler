@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 19:00:18 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 13:16:39 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,24 @@ int	ft_read_plateau(t_map **map)
 {
 	char	*line;
 	int		i;
+	int		ret;
 
-	line = ft_find_line(0, "000");
+	ret = ft_find_line(&line, "000");
+	if (0 >= ret)
+		return (1);
 	if (0 == ft_strncmp("== O fin:", line, 9))
 	{
-		(*map)->p1_result = ft_strjoin((*map)->p1_name, line + 8);
+		ft_strcat((*map)->p1_name, line + 8);
 		ft_strdel(&line);
 		get_next_line(0, &line);
-		if (ft_strlen(line) > 9)
-			(*map)->p2_result = ft_strjoin((*map)->p2_name, line + 8);
+		if (0 == ft_strncmp("== X fin:", line, 9))
+			ft_strcat((*map)->p2_name, line + 8);
+		ft_strdel(&line);
+		return (1);
+	}
+	else if (0 == ft_strncmp("== X fin:", line, 9))
+	{
+		ft_strcat((*map)->p2_name, line + 8);
 		ft_strdel(&line);
 		return (1);
 	}

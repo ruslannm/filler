@@ -6,27 +6,31 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/06 18:45:49 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 13:24:38 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "visualizer.h"
 
-char	*ft_find_line(int fd, char *needle)
+int		ft_find_line(char **line, char *needle)
 {
-	char	*ret;
+	int 	ret;
+	char	*line_tmp;
 
-	ret = NULL;
-	while (get_next_line(fd, &ret))
+	ret = 0;
+line_tmp = NULL;	
+	while ((ret = get_next_line(0, &line_tmp)))
 	{
-		if (!ret)
-			return (ret);
-		if (ft_strstr(ret, "== O fin:"))
+		ft_printf("ret=%d, line=%s|\n", line_tmp);
+		if (-1 == ret)
 			break ;
-		if (ft_strstr(ret, needle))
+		if (ft_strstr(line_tmp, "=="))
 			break ;
-		ft_strdel(&ret);
+		if (ft_strstr(line_tmp, needle))
+			break ;
+		ft_strdel(&line_tmp);
 	}
+	*line = line_tmp;
 	return (ret);
 }
 
