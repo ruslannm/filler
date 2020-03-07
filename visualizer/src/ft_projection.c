@@ -6,17 +6,11 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 12:26:07 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/07 15:41:39 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 16:00:47 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "visualizer.h"
-/*
-void	ft_put_pixel(t_map *map, int x, int y, int color)
-{
-	*(int*)(map->data + (x + y * WIDTH) * map->bpp / 8) = color;
-}
-*/
 
 void	ft_fill_bg(t_map **map)
 {
@@ -80,7 +74,6 @@ void	ft_fill_bit_last(t_map **map, int y, int x, int color)
 			img[i] = color;
 	}
 }
-
 
 void	ft_fill_bit_menu(t_map **map, int y, int x, int color)
 {

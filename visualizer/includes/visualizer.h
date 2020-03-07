@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/07 15:53:58 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 16:07:18 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ typedef struct
 	int				bpp;
 	int				sl;
 	int				endian;
-
 	int				map_height;
 	int				map_width;
 	int				frame_height;
@@ -62,6 +61,6 @@ void				ft_fill_bit(t_map **map, int y, int x, int color);
 void				ft_fill_bit_last(t_map **map, int y, int x, int color);
 void				ft_fill_bit_menu(t_map **map, int y, int x, int color);
 int					ft_read_plateau(t_map **map);
-int	ft_key(int key, t_map *map);
+int					ft_key(int key, t_map *map);
 
 #endif

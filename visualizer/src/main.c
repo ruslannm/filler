@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 15:15:31 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/07 15:30:46 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 16:02:36 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_del_map(t_map *map)
 	free(map);
 }
 
-int	ft_key(int key, t_map *map)
+int		ft_key(int key, t_map *map)
 {
 	if (53 == key)
 	{
@@ -29,18 +29,10 @@ int	ft_key(int key, t_map *map)
 	return (0);
 }
 
-/*
-void	ft_read(t_map *data)
-{
-	ft_putstr(data->p1_name);
-}
-*/
-
 void	ft_put_windows(t_map *map)
 {
 	void	*mlx;
 	void	*win;
-	
 
 	map->mlx_ptr = mlx_init();
 	map->win_ptr = mlx_new_window(map->mlx_ptr, WIDTH, HEIGHT, "filler");
@@ -61,11 +53,11 @@ int		main(void)
 {
 	int		ret;
 	t_map	*map;
-	
+
 	ret = ft_init(&map);
 	if (0 == ret)
 	{
-		ft_put_windows(map);	
+		ft_put_windows(map);
 		return (0);
 	}
 	return (0);

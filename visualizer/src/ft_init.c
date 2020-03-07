@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/07 15:54:41 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 16:03:02 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	ft_get_size_map(t_map **map)
 	return (ret);
 }
 
-int		ft_get_size_frame(t_map **map)
+int	ft_get_size_frame(t_map **map)
 {
 	int	ret;
 	int	height_ratio;
