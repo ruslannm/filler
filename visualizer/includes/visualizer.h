@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/07 16:07:18 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 16:13:22 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 
 typedef struct
 {
+	int				finish;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	void			*img_ptr;
@@ -48,7 +49,6 @@ typedef struct
 	int				frame_ratio;
 	char			p1_name[50];
 	char			p2_name[50];
-	int				finish;
 }					t_map;
 
 int					ft_init(t_map **map);
