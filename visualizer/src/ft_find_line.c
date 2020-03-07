@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/07 13:24:38 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 14:24:38 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int		ft_find_line(char **line, char *needle)
 {
-	int 	ret;
+	int		ret;
 	char	*line_tmp;
 
-	ret = 0;
-line_tmp = NULL;	
-	while ((ret = get_next_line(0, &line_tmp)))
+	ret = get_next_line(0, &line_tmp);
+	while (1 == ret)
 	{
-		ft_printf("ret=%d, line=%s|\n", line_tmp);
 		if (-1 == ret)
 			break ;
 		if (ft_strstr(line_tmp, "=="))
@@ -29,6 +27,7 @@ line_tmp = NULL;
 		if (ft_strstr(line_tmp, needle))
 			break ;
 		ft_strdel(&line_tmp);
+		ret = get_next_line(0, &line_tmp);
 	}
 	*line = line_tmp;
 	return (ret);

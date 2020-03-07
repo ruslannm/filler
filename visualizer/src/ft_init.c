@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 10:24:55 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/07 13:16:48 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/07 14:25:09 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	ft_get_player(t_map **map)
 	char	*name;
 	int		ret;
 
-	ret = 0;
 	ret = ft_find_line(&line, "$$$ exec p1");
 	if (0 >= ret)
 		ret = -1;
