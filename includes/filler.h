@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:16:01 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 18:38:31 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/11 14:35:49 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define LAST		-1
 # define DOT		-3
 # define SHOTS		5
+# define BOARD		1
 
 typedef struct
 {

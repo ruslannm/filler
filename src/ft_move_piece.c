@@ -6,7 +6,7 @@
 /*   By: rgero <rgero@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 16:26:58 by rgero             #+#    #+#             */
-/*   Updated: 2020/03/05 17:39:05 by rgero            ###   ########.fr       */
+/*   Updated: 2020/03/11 14:41:02 by rgero            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		ft_get_sum(t_map *map, int h, int w)
 
 	ret = 0;
 	i = 0;
+
 	while (i < map->piece_height)
 	{
 		j = 0;
@@ -29,6 +30,8 @@ int		ft_get_sum(t_map *map, int h, int w)
 			{
 				if (map->map[h + i][w + j] >= 0)
 					ret += map->map[h + i][w + j];
+				else
+					ret += ft_max(map->map_height, map->map_width);
 			}
 			j++;
 		}
@@ -73,9 +76,9 @@ int		ft_get_distance_opposite2(int h1, int h2, int w1, int w2)
 {
 	int	ret;
 
-	if (h1 == h2)
+	if (ft_abs(h1 - h2) <= BOARD)
 		ret = 0;
-	else if (w1 == w2)
+	else if (ft_abs(w1 - w2) <= BOARD)
 		ret = 0;
 	else
 		ret = ft_abs(h1 - h2) + ft_abs(w1 - w2);
