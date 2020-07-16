@@ -6,14 +6,14 @@
 #    By: rgero <rgero@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 15:46:56 by rgero             #+#    #+#              #
-#    Updated: 2020/03/06 18:11:51 by rgero            ###   ########.fr        #
+#    Updated: 2020/03/07 16:43:01 by rgero            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = visualizer
 
 CC = gcc
-CFLAGS = -c -Wall -Wextra -Werror -g
+CFLAGS = -c -Wall -Wextra -Werror
 FW = -framework OpenGL -framework AppKit
 
 SRC_PATH = src

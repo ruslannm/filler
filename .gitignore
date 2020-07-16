@@ -1,7 +1,0 @@
-libft/obj/*.o
-libft/*.a
-obj/*.o
-result.txt
-filler.trace
-result.txt
-filler2.txt
