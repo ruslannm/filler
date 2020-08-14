@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rgero <rgero@student.42.fr>                +#+  +:+       +#+         #
+#    By: rgero <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/13 15:46:56 by rgero             #+#    #+#              #
-#    Updated: 2020/03/07 16:43:01 by rgero            ###   ########.fr        #
+#    Updated: 2020/08/14 17:22:33 by rgero            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ OBJ_PATH = obj
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ = $(addprefix $(OBJ_PATH)/, $(OBJ_NAME)) 
 
-INCLUDES_PATH = includes ../libft/includes ../libft/ft_printf/includes
+INCLUDES_PATH = includes ../libft/includes ../libft/ft_printf/includes\
+				minilibx_macos
 INCLUDES = $(addprefix -I, $(INCLUDES_PATH))
 
 LIB_PATH = ../libft
