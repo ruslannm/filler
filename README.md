@@ -10,6 +10,7 @@
 make && make -C ./visualizer
 
 Example:
+
 to execute:
 ./resources/filler_vm -p1 ./rgero.filler -p2 ./resources/players/superjeannot.filler -f ./resources/maps/map02
 
